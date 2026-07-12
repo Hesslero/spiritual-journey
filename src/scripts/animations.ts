@@ -60,6 +60,32 @@ if (!reducedMotion) {
   animate('.journey-art > img', { scale: [1, 1.015], duration: 6500, loop: true, alternate: true, ease: 'inOutSine' });
   animate('.journey-path', { x: ['-2%', '4%'], scaleX: [0.98, 1.04], duration: 7600, loop: true, alternate: true, ease: 'inOutSine' });
   animate('.botanical', { rotate: [-4, 5], y: [-2, 4], duration: 3800, loop: true, alternate: true, ease: 'inOutSine' });
+
+  // Scroll-linked walker following the journey path.
+  const trail = document.querySelector<SVGPathElement>('.scroll-trail-progress');
+  const walker = document.querySelector<HTMLElement>('.scroll-walker');
+  if (trail && walker) {
+    const length = trail.getTotalLength();
+    trail.style.strokeDasharray = `${length}`;
+    trail.style.strokeDashoffset = `${length}`;
+    let ticking = false;
+    const updateJourney = () => {
+      const available = document.documentElement.scrollHeight - window.innerHeight;
+      const progress = available > 0 ? Math.min(1, Math.max(0, window.scrollY / available)) : 0;
+      const point = trail.getPointAtLength(length * progress);
+      const next = trail.getPointAtLength(Math.min(length, length * progress + 2));
+      const angle = Math.atan2(next.y - point.y, next.x - point.x) * 180 / Math.PI;
+      trail.style.strokeDashoffset = `${length * (1 - progress)}`;
+      walker.style.transform = `translate(${point.x}px, ${point.y}px) rotate(${Math.max(-12, Math.min(12, angle - 90))}deg)`;
+      walker.style.setProperty('--walk-step', `${Math.sin(progress * 90) * 3}px`);
+      ticking = false;
+    };
+    window.addEventListener('scroll', () => {
+      if (!ticking) { requestAnimationFrame(updateJourney); ticking = true; }
+    }, { passive: true });
+    window.addEventListener('resize', updateJourney);
+    updateJourney();
+  }
 }
 
 function revealElement(element: Element) {
