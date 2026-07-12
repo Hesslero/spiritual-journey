@@ -78,3 +78,6 @@
 @media(max-width:650px){.practice-image{height:300px}.profile-mark img{transform:scale(1.42);object-position:90% center}}
 .profile-mark.profile-photo img{object-fit:cover;object-position:center 28%;transform:none}
 @media(max-width:650px){.profile-mark.profile-photo img{object-position:center 24%;transform:none}}
+.lang-switch{display:grid;place-items:center;width:34px;height:34px;border-radius:50%;border:1px solid rgba(57,44,28,0.22);text-decoration:none;font-size:0.68rem;font-weight:600;color:var(--charcoal);transition:all 0.3s;margin-left:8px;box-sizing:border-box}
+.lang-switch:hover{background:var(--forest);color:white;border-color:var(--forest)}
+.lang-switch-mobile{font-size:0.75rem;text-transform:uppercase;letter-spacing:0.12em;font-weight:600;padding-top:16px !important;border-top:1px solid rgba(57,44,28,0.12);margin-top:12px;color:var(--terra) !important}

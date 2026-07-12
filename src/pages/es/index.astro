@@ -1,0 +1,199 @@
+---
+import Header from '../../components/Header.astro';
+import Icon from '../../components/Icon.astro';
+import { approachEs, consultationHrefEs, email, expectationsEs, phoneDisplay, phoneHref } from '../../data/site';
+import '../../styles/global.css';
+const year = new Date().getFullYear();
+const schema = { '@context':'https://schema.org','@type':'Person',name:'Nathalie Bose-Silver',jobTitle:'Catholic Spiritual Director',telephone:'+1-321-231-0058',email,areaServed:['Oviedo, Florida','Winter Park, Florida'],knowsLanguage:['English','Spanish'] };
+---
+<!doctype html><html lang="es"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width"/><title>Nathalie Bose-Silver | Acompañamiento Espiritual Católico</title><meta name="description" content="Acompañamiento espiritual católico compasivo en inglés y español. Comienza con una consulta gratuita de 30 minutos."/><meta property="og:title" content="Nathalie Bose-Silver | Acompañamiento Espiritual"/><meta property="og:description" content="Un espacio de oración para percibir la gracia y discernir tu camino."/><meta property="og:type" content="website"/><meta property="og:image" content="/images/spiritual-journey/spiritual-journey-logo.png"/><script is:inline type="application/ld+json" set:html={JSON.stringify(schema)}/></head>
+<body id="top"><a class="skip" href="#main">Saltar al contenido</a><Header lang="es"/>
+<main id="main">
+  <section class="hero">
+    <div class="hero-index" aria-hidden="true"><i></i><small>Bienvenido</small></div>
+    <div class="hero-copy"><p class="kicker">Acompañamiento espiritual católico · Inglés y Español</p><h1>Un camino más silencioso para escuchar lo que tu <em>corazón</em> ya sabe.</h1><p class="hero-lead">Aléjate del ruido. Entra en una conversación íntima y de oración para percibir el movimiento de Dios y mirar tu vida con claridad, valor y gracia.</p><div class="hero-actions"><a class="primary-link" href={consultationHrefEs}>Conversación gratuita de 30 minutos <span>↗</span></a><a class="text-link" href={phoneHref}>Llamar a {phoneDisplay} <span>→</span></a></div></div>
+    <div class="hero-visual"><div class="orbit orbit-one"></div><div class="orbit orbit-two"></div><img src="/images/spiritual-journey/spiritual-journey-logo.png" width="1024" height="1024" alt="Emblema de Spiritual Journey con un sendero sinuoso, mariposas, manos sosteniendo una llama y una paloma."/><p><span>✦</span>Una pausa sagrada<br/>para tu camino por recorrer</p></div>
+    <a class="scroll-cue" href="#practice"><span>Desliza para explorar</span><i>↓</i></a>
+  </section>
+
+  <section class="manifesto" id="practice">
+    <div class="butterfly butterfly-1" aria-hidden="true">
+      <svg viewBox="0 0 24 24"><path d="M12 10c-.7-2-3-5.5-6-5.5C3 4.5 1 6.5 1 9.5c0 3 2.5 5.5 5.5 6.5-.5 1-1.5 2.5-3 3.5 0 0 2-.5 3.5-2 .5.5 1 1 1.5 1s1-.5 1.5-1c1.5 1.5 3.5 2 3.5 2-1.5-1-2.5-2.5-3-3.5 3-1 5.5-3.5 5.5-6.5 0-3-2-5-5-5-3 0-5.3 3.5-6 5.5z"/></svg>
+    </div>
+    <div class="butterfly butterfly-2" aria-hidden="true">
+      <svg viewBox="0 0 24 24"><path d="M12 10c-.7-2-3-5.5-6-5.5C3 4.5 1 6.5 1 9.5c0 3 2.5 5.5 5.5 6.5-.5 1-1.5 2.5-3 3.5 0 0 2-.5 3.5-2 .5.5 1 1 1.5 1s1-.5 1.5-1c1.5 1.5 3.5 2 3.5 2-1.5-1-2.5-2.5-3-3.5 3-1 5.5-3.5 5.5-6.5 0-3-2-5-5-5-3 0-5.3 3.5-6 5.5z"/></svg>
+    </div>
+    <div class="butterfly butterfly-3" aria-hidden="true">
+      <svg viewBox="0 0 24 24"><path d="M12 10c-.7-2-3-5.5-6-5.5C3 4.5 1 6.5 1 9.5c0 3 2.5 5.5 5.5 6.5-.5 1-1.5 2.5-3 3.5 0 0 2-.5 3.5-2 .5.5 1 1 1.5 1s1-.5 1.5-1c1.5 1.5 3.5 2 3.5 2-1.5-1-2.5-2.5-3-3.5 3-1 5.5-3.5 5.5-6.5 0-3-2-5-5-5-3 0-5.3 3.5-6 5.5z"/></svg>
+    </div>
+    <div class="butterfly butterfly-4" aria-hidden="true">
+      <svg viewBox="0 0 24 24"><path d="M12 10c-.7-2-3-5.5-6-5.5C3 4.5 1 6.5 1 9.5c0 3 2.5 5.5 5.5 6.5-.5 1-1.5 2.5-3 3.5 0 0 2-.5 3.5-2 .5.5 1 1 1.5 1s1-.5 1.5-1c1.5 1.5 3.5 2 3.5 2-1.5-1-2.5-2.5-3-3.5 3-1 5.5-3.5 5.5-6.5 0-3-2-5-5-5-3 0-5.3 3.5-6 5.5z"/></svg>
+    </div>
+    <div class="butterfly butterfly-5" aria-hidden="true">
+      <svg viewBox="0 0 24 24"><path d="M12 10c-.7-2-3-5.5-6-5.5C3 4.5 1 6.5 1 9.5c0 3 2.5 5.5 5.5 6.5-.5 1-1.5 2.5-3 3.5 0 0 2-.5 3.5-2 .5.5 1 1 1.5 1s1-.5 1.5-1c1.5 1.5 3.5 2 3.5 2-1.5-1-2.5-2.5-3-3.5 3-1 5.5-3.5 5.5-6.5 0-3-2-5-5-5-3 0-5.3 3.5-6 5.5z"/></svg>
+    </div>
+    <div class="butterfly butterfly-6" aria-hidden="true">
+      <svg viewBox="0 0 24 24"><path d="M12 10c-.7-2-3-5.5-6-5.5C3 4.5 1 6.5 1 9.5c0 3 2.5 5.5 5.5 6.5-.5 1-1.5 2.5-3 3.5 0 0 2-.5 3.5-2 .5.5 1 1 1.5 1s1-.5 1.5-1c1.5 1.5 3.5 2 3.5 2-1.5-1-2.5-2.5-3-3.5 3-1 5.5-3.5 5.5-6.5 0-3-2-5-5-5-3 0-5.3 3.5-6 5.5z"/></svg>
+    </div>
+    <div class="section-number">La práctica</div><div class="manifesto-title"><p>El acompañamiento espiritual es</p><h2>No es un consejo.<br/>No es terapia.<br/><em>Es atención sagrada.</em></h2><figure class="practice-image"><img src="/images/spiritual-journey/spiritual-practice.png" alt="Una Biblia abierta, un rosario sencillo de madera y una vela encendida sobre una mesa de madera rústica, sugiriendo un espacio de oración y recogimiento." loading="lazy"/><figcaption>Un espacio para escuchar más allá del ruido.</figcaption></figure></div><div class="manifesto-copy"><p>Es una conversación centrada en tu relación con Dios: un espacio para desacelerar, reflexionar, orar y estar atento a la gracia en la vida cotidiana.</p><p>Nathalie no te diagnostica ni te impone respuestas. Ella te acompaña a reconocer la presencia divina dentro y alrededor de ti, y a discernir el camino que ya se está abriendo.</p><aside>“Un director espiritual es aquel que ayuda a otro a reconocer y seguir las inspiraciones de la gracia.”</aside></div></section>
+
+  <section class="path-section" id="journey"><div class="path-heading"><div><span class="section-number">El viaje</span><h2>Cuatro movimientos.<br/>Un camino por descubrir.</h2></div><p>Conversaciones mensuales de una hora centradas en tu vida, no en una fórmula.</p></div><div class="path-layout"><div class="path-line" aria-hidden="true"><span class="path-progress"></span></div>{expectationsEs.map(([icon,title,text],i)=><article class="path-step"><div class="step-icon"><Icon name={icon}/></div><div><h3>{title}</h3><p>{text}</p></div></article>)}</div></section>
+
+  <section class="approach"><div class="approach-sticky"><span class="section-number">El enfoque</span><h2>Acogido con cuidado.<br/>Guiado por la gracia.</h2><p>Cada sesión es una invitación a hacer una pausa y escuchar profundamente lo que se mueve dentro de tu corazón.</p></div><div class="approach-panels">{approachEs.map(([title,text],i)=><article><h3>{title}</h3><p>{text}</p></article>)}</div></section>
+
+  <section class="profile" id="nathalie"><figure class="profile-mark profile-photo"><img src="/images/spiritual-journey/profile-pic.png" alt="Retrato de Nathalie Bose-Silver sonriendo con una chaqueta naranja." loading="lazy"/><figcaption>Presencia compasiva · Escucha en oración</figcaption></figure><div class="profile-copy"><span class="section-number">Tu compañera</span><h2>Conoce a Nathalie<br/>Bose-Silver.</h2><p class="profile-intro">Una directora espiritual profesional certificada, arraigada en la fe católica y abierta a la historia sagrada de cada persona.</p><div class="profile-columns"><p>Nathalie completó el Programa de Presencia Sagrada en el Centro San Pedro, un ministerio de la Diócesis de Orlando, y es miembro de Spiritual Directors International.</p><p>Su experiencia incluye formación en la fe de adultos y jóvenes, y la fundación de un ministerio sin fines de lucro para la elaboración de rosarios, apoyando una oración y devoción más profundas.</p></div><div class="credentials"><span>Directora Espiritual Certificada</span><span>Inglés y Español</span><span>Miembro de la SDI</span></div></div></section>
+
+  <section class="meeting" id="meeting-section">
+    <div class="meeting-intro">
+      <span class="section-number">Dónde nos reunimos</span>
+      <h2>Dondequiera que puedas<br/>estar plenamente presente.</h2>
+    </div>
+    
+    <div class="tabs-container">
+      <div class="tabs-nav" role="tablist" aria-label="Opciones de reunión">
+        <button class="tab-btn active" role="tab" aria-selected="true" aria-controls="panel-zoom" id="tab-zoom">
+          <Icon name="video" />
+          <span>Zoom</span>
+        </button>
+        <button class="tab-btn" role="tab" aria-selected="false" aria-controls="panel-phone" id="tab-phone">
+          <Icon name="phone" />
+          <span>Teléfono</span>
+        </button>
+        <button class="tab-btn" role="tab" aria-selected="false" aria-controls="panel-inperson" id="tab-inperson">
+          <Icon name="place" />
+          <span>Presencial</span>
+        </button>
+        <div class="tabs-indicator"></div>
+      </div>
+
+      <div class="tabs-window">
+        <div class="tabs-slider">
+          <div class="tab-panel" id="panel-zoom" role="tabpanel" aria-labelledby="tab-zoom">
+            <div class="panel-visual">
+              <div class="visual-circle circle-zoom">
+                <Icon name="video" />
+              </div>
+            </div>
+            <div class="panel-content">
+              <h3>Sesión por Video</h3>
+              <p>Reúnete cara a cara desde un lugar privado y cómodo de tu elección. Las sesiones en línea ofrecen flexibilidad y facilidad de horario desde la privacidad de tu hogar u oficina.</p>
+              <a href="#contact" class="panel-action">Agendar sesión en Zoom <span>→</span></a>
+            </div>
+          </div>
+
+          <div class="tab-panel" id="panel-phone" role="tabpanel" aria-labelledby="tab-phone">
+            <div class="panel-visual">
+              <div class="visual-circle circle-phone">
+                <Icon name="phone" />
+              </div>
+            </div>
+            <div class="panel-content">
+              <h3>Llamada Telefónica</h3>
+              <p>Una forma sencilla y accesible de conectar desde donde te sientas cómodo. Ideal para quienes prefieren caminar, sentarse en la naturaleza o simplemente encuentran más reflexivo hablar sin pantalla.</p>
+              <a href="#contact" class="panel-action">Agendar sesión telefónica <span>→</span></a>
+            </div>
+          </div>
+
+          <div class="tab-panel" id="panel-inperson" role="tabpanel" aria-labelledby="tab-inperson">
+            <div class="panel-visual">
+              <div class="visual-circle circle-inperson">
+                <Icon name="place" />
+              </div>
+            </div>
+            <div class="panel-content">
+              <h3>En Persona</h3>
+              <p>Reúnete en Oviedo o Winter Park, Florida. Un espacio tranquilo y dedicado, diseñado para la escucha profunda, la quietud en oración y la conexión personal.</p>
+              <a href="#contact" class="panel-action">Agendar sesión presencial <span>→</span></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const tabsContainer = document.querySelector('.tabs-container');
+      if (!tabsContainer) return;
+
+      const tabBtns = Array.from(tabsContainer.querySelectorAll('.tab-btn')) as HTMLButtonElement[];
+      const tabsIndicator = tabsContainer.querySelector('.tabs-indicator') as HTMLElement;
+      const tabsSlider = tabsContainer.querySelector('.tabs-slider') as HTMLElement;
+      let currentIndex = 0;
+      let autoplayInterval: any;
+
+      function updateTabs(btn: HTMLButtonElement) {
+        const index = tabBtns.indexOf(btn);
+        if (index === -1) return;
+        currentIndex = index;
+
+        tabBtns.forEach(b => {
+          b.classList.remove('active');
+          b.setAttribute('aria-selected', 'false');
+        });
+
+        btn.classList.add('active');
+        btn.setAttribute('aria-selected', 'true');
+
+        if (tabsIndicator) {
+          const isMobile = window.innerWidth <= 900;
+          if (isMobile) {
+            tabsIndicator.style.height = '';
+            tabsIndicator.style.top = '6px';
+            tabsIndicator.style.bottom = '6px';
+            tabsIndicator.style.width = `${btn.offsetWidth}px`;
+            tabsIndicator.style.transform = `translateX(${btn.offsetLeft}px)`;
+          } else {
+            tabsIndicator.style.width = '';
+            tabsIndicator.style.left = '8px';
+            tabsIndicator.style.right = '8px';
+            tabsIndicator.style.height = `${btn.offsetHeight}px`;
+            tabsIndicator.style.transform = `translateY(${btn.offsetTop}px)`;
+          }
+        }
+
+        const targetId = btn.getAttribute('aria-controls');
+        const targetPanel = document.getElementById(targetId || '');
+        if (targetPanel && tabsSlider) {
+          // Translate vertically
+          tabsSlider.style.transform = `translateY(-${index * 33.3333}%)`;
+        }
+      }
+
+      function nextTab() {
+        const nextIndex = (currentIndex + 1) % tabBtns.length;
+        updateTabs(tabBtns[nextIndex]);
+      }
+
+      // Start autoplay
+      autoplayInterval = setInterval(nextTab, 10000);
+
+      tabBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          // Clear autoplay on manual click
+          clearInterval(autoplayInterval);
+          updateTabs(btn);
+        });
+      });
+
+      // Init positioning
+      setTimeout(() => {
+        const activeBtn = tabsContainer.querySelector('.tab-btn.active') as HTMLButtonElement;
+        if (activeBtn) {
+          updateTabs(activeBtn);
+        }
+      }, 150);
+
+      window.addEventListener('resize', () => {
+        const currentActive = tabsContainer.querySelector('.tab-btn.active') as HTMLButtonElement;
+        if (currentActive) {
+          updateTabs(currentActive);
+        }
+      });
+    });
+  </script>
+
+  <section class="contact" id="contact"><div class="contact-symbol" aria-hidden="true">✦</div><p>Comienza con una conversación de cortesía</p><h2>Tal vez tu siguiente paso<br/>sea simplemente <em>comenzar.</em></h2><div class="contact-actions"><a href={consultationHrefEs}>Escribir a Nathalie <span>↗</span></a><a href={phoneHref}>Llamar al {phoneDisplay}</a></div><div class="contact-meta"><span>{email}</span><span>Inglés y Español</span><span>Zoom · Teléfono · En Persona</span></div></section>
+</main>
+<footer><div><strong>Nathalie Bose-Silver</strong><span>Directora Espiritual Católica</span></div><nav><a href="#practice">Práctica</a><a href="#journey">Viaje</a><a href="#nathalie">Acerca de</a><a href="#contact">Contacto</a></nav><p>© {year} Nathalie Bose-Silver.<br/>El acompañamiento espiritual no sustituye la consejería, la psicoterapia, la atención médica ni los servicios de emergencia.</p></footer>
+<script>import '../../scripts/animations';</script></body></html>
