@@ -2,6 +2,5 @@ import { defineConfig } from 'astro/config';
 
 export default defineConfig({
   output: 'static',
-  site: 'https://hesslero.github.io',
-  base: '/spiritual-journey',
+  site: 'https://spiritual-journey.pages.dev',
 });
