@@ -7,14 +7,14 @@
 :focus-visible{outline:3px solid var(--orange);outline-offset:4px}
 
 /* Authorized imagery, cropped to visual content rather than flyer text */
-.practice-image{position:relative;margin:55px 0 0;width:min(100%,520px);height:285px;overflow:hidden;border-radius:2px}
-.practice-image img{width:200%;height:100%;object-fit:cover;object-position:right center;filter:saturate(.86) contrast(1.05)}
+.practice-image{position:relative;margin:55px 0 0;width:min(100%,520px);height:380px;overflow:hidden;border-radius:4px}
+.practice-image img{width:100%;height:100%;object-fit:cover;object-position:center;filter:saturate(.95) contrast(1.02)}
 .practice-image:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(8,45,32,.2),transparent 55%);pointer-events:none}
 .practice-image figcaption{position:absolute;z-index:1;left:18px;bottom:15px;padding:7px 10px;background:rgba(8,45,32,.72);font:italic .86rem var(--serif);color:#fff1d7;backdrop-filter:blur(6px)}
 .profile-mark{display:block;margin:0;padding:0}
 .profile-mark img{width:100%;height:100%;display:block;object-fit:cover;object-position:88% center;transform:scale(1.34)}
 .profile-mark figcaption{position:absolute;z-index:2;left:25px;right:25px;bottom:24px;padding:11px 14px;background:rgba(255,245,223,.88);color:var(--forest);font:italic 1rem var(--serif);backdrop-filter:blur(8px)}
 .profile-mark:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(20,63,42,.2));pointer-events:none}
-@media(max-width:650px){.practice-image{height:245px}.profile-mark img{transform:scale(1.42);object-position:90% center}}
+@media(max-width:650px){.practice-image{height:300px}.profile-mark img{transform:scale(1.42);object-position:90% center}}
 .profile-mark.profile-photo img{object-fit:cover;object-position:center 28%;transform:none}
 @media(max-width:650px){.profile-mark.profile-photo img{object-position:center 24%;transform:none}}
