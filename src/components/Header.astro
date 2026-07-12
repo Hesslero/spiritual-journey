@@ -1,0 +1,19 @@
+---
+import { consultationHref } from '../data/site';
+---
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="brand" href="#top" aria-label="Nathalie Bose-Silver, home">
+      <span class="brand-mark" aria-hidden="true">✦</span>
+      <span><strong>Nathalie Bose-Silver</strong><small>Spiritual Director</small></span>
+    </a>
+    <nav class="desktop-nav" aria-label="Main navigation">
+      <a href="#about">About</a><a href="#expect">What to Expect</a><a href="#approach">Approach</a><a href="#contact">Contact</a>
+      <a class="button button-small" href={consultationHref}>Free Consultation</a>
+    </nav>
+    <details class="mobile-nav">
+      <summary aria-label="Open navigation"><span></span><span></span><span></span></summary>
+      <nav aria-label="Mobile navigation"><a href="#about">About</a><a href="#expect">What to Expect</a><a href="#approach">Approach</a><a href="#contact">Contact</a><a href={consultationHref}>Free Consultation</a></nav>
+    </details>
+  </div>
+</header>

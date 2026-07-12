@@ -1,0 +1,38 @@
+---
+import Header from '../components/Header.astro';
+import Icon from '../components/Icon.astro';
+import JourneyArt from '../components/JourneyArt.astro';
+import { approach, consultationHref, email, expectations, phoneDisplay, phoneHref } from '../data/site';
+import '../styles/global.css';
+const year = new Date().getFullYear();
+const schema = { '@context': 'https://schema.org', '@type': 'Person', name: 'Nathalie Bose-Silver', jobTitle: 'Catholic Spiritual Director', telephone: '+1-321-231-0058', email, areaServed: ['Oviedo, Florida', 'Winter Park, Florida'], knowsLanguage: ['English', 'Spanish'] };
+---
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width" />
+  <title>Nathalie Bose-Silver | Catholic Spiritual Director</title>
+  <meta name="description" content="Compassionate Catholic spiritual direction in English and Spanish. Schedule a free 30-minute consultation with Nathalie Bose-Silver by phone or email." />
+  <meta property="og:title" content="Nathalie Bose-Silver | Spiritual Direction" /><meta property="og:description" content="Personalized, prayerful spiritual direction in English and Spanish." /><meta property="og:type" content="website" />
+  <script is:inline type="application/ld+json" set:html={JSON.stringify(schema)} />
+</head>
+<body id="top">
+  <a class="skip-link" href="#main">Skip to content</a><Header />
+  <main id="main">
+    <section class="hero"><div class="container hero-grid"><div class="hero-copy"><p class="eyebrow">Catholic Spiritual Direction <span>·</span> English & Spanish</p><h1>Find clarity, connection, and <em>grace</em> along your spiritual journey.</h1><p class="lead">Spiritual direction offers a prayerful, confidential space to notice how God is moving in your life. Nathalie accompanies each person with compassionate listening, thoughtful reflection, and respect for their unique journey.</p><div class="actions"><a class="button" href={consultationHref}>Schedule a Free 30-Minute Consultation</a><a class="button button-outline" href={phoneHref}>Call {phoneDisplay}</a></div><p class="fine-print">Regular one-hour sessions are available monthly by Zoom or phone. Fee applies.</p></div><JourneyArt /></div></section>
+
+    <section class="section intro" id="direction"><div class="container narrow"><p class="section-label">A sacred conversation</p><h2>What Is Spiritual Direction?</h2><div class="intro-grid"><p>Spiritual direction is a sacred conversation centered on your relationship with God. It provides time to slow down, reflect, pray, and become more attentive to grace in everyday life.</p><p>A spiritual director does not provide therapy, diagnosis, or direct answers. Instead, Nathalie accompanies you as you discern your unfolding path and recognize the Divine within and around you.</p></div><aside><span aria-hidden="true">✦</span><strong>Spiritual direction is not counseling or therapy.</strong><span>It is a prayerful practice of listening and discernment.</span></aside></div></section>
+
+    <section class="section expectations" id="expect"><div class="container"><div class="section-heading"><p class="section-label">Your experience</p><h2>What to Expect</h2><p>A gentle rhythm of presence, reflection, and meaningful conversation.</p></div><div class="card-grid">{expectations.map(([icon,title,text]) => <article class="feature-card"><div class="icon"><Icon name={icon} /></div><h3>{title}</h3><p>{text}</p></article>)}</div></div></section>
+
+    <section class="section approach-section" id="approach"><div class="container approach-wrap"><div class="approach-intro"><p class="section-label">My approach</p><h2>A Heart-Centered Approach</h2><p>Every session is an invitation to pause, listen deeply, and explore what is moving within your heart.</p><span class="botanical" aria-hidden="true">❧</span></div><div class="approach-list">{approach.map(([title,text], i) => <article><span>0{i + 1}</span><div><h3>{title}</h3><p>{text}</p></div></article>)}</div></div></section>
+
+    <section class="section about" id="about"><div class="container about-grid"><div class="portrait-placeholder" aria-hidden="true"><div class="sun"></div><span>NBS</span><p>Compassionate presence<br/>Prayerful listening</p></div><div><p class="section-label">Your spiritual companion</p><h2>Meet Nathalie Bose-Silver</h2><p>Nathalie is a certified professional spiritual director through the Sacred Presence Program at San Pedro Center, a ministry of the Diocese of Orlando. She is also a member of Spiritual Directors International.</p><p>Rooted in the Catholic faith, Nathalie offers spiritual direction in both English and Spanish and welcomes seekers from diverse backgrounds into heart-centered conversations grounded in sacred trust.</p><p>Her experience includes serving in adult and youth faith formation and founding a nonprofit rosary-making ministry that supports deeper devotion and prayer.</p><div class="chips"><span>Certified Spiritual Director</span><span>English & Spanish</span><span>SDI Member</span></div></div></div></section>
+
+    <section class="section meeting"><div class="container"><div class="section-heading"><p class="section-label">Flexible and personal</p><h2>Where We Meet</h2><p>Sessions are available by appointment in a quiet place where you can be present and uninterrupted.</p></div><div class="meeting-grid"><article><div class="icon"><Icon name="video" /></div><h3>Zoom</h3><p>Connect face-to-face from a private, comfortable space of your choosing.</p><a href={consultationHref}>Email to schedule <span>→</span></a></article><article><div class="icon"><Icon name="phone" /></div><h3>Phone</h3><p>A simple, accessible way to meet from wherever you feel most at ease.</p><a href={phoneHref}>Call now <span>→</span></a></article><article><div class="icon"><Icon name="place" /></div><h3>In Person</h3><p>By appointment at Most Precious Blood Catholic Church in Oviedo or San Pedro Center in Winter Park.</p><a href={consultationHref}>Ask about availability <span>→</span></a></article></div></div></section>
+
+    <section class="final-cta" id="contact"><div class="container"><p class="section-label">Your first conversation is complimentary</p><h2>Ready to explore your spiritual journey?</h2><p>Begin with a complimentary 30-minute conversation to ask questions, learn what spiritual direction can offer, and see whether it feels right for you.</p><div class="actions"><a class="button button-light" href={consultationHref}>Email Nathalie</a><a class="button button-ghost" href={phoneHref}>Call {phoneDisplay}</a></div><div class="contact-line"><a href={`mailto:${email}`}>{email}</a><span>•</span><a href={phoneHref}>{phoneDisplay}</a><span>•</span><span>English & Spanish</span></div></div></section>
+  </main>
+  <footer><div class="container footer-grid"><div><a class="brand footer-brand" href="#top"><span class="brand-mark">✦</span><span><strong>Nathalie Bose-Silver</strong><small>Catholic Spiritual Director</small></span></a><a href={phoneHref}>{phoneDisplay}</a><a href={`mailto:${email}`}>{email}</a></div><nav aria-label="Footer navigation"><a href="#about">About</a><a href="#expect">What to Expect</a><a href="#contact">Contact</a><a href="#privacy">Privacy</a></nav></div><div class="container legal" id="privacy"><p>Spiritual direction is not a substitute for counseling, psychotherapy, medical care, or emergency services.</p><p>© {year} Nathalie Bose-Silver. All rights reserved.</p></div></footer>
+  <nav class="mobile-actions" aria-label="Quick contact"><a href={phoneHref}><Icon name="phone" /> Call</a><a href={consultationHref}>✉ Email</a></nav>
+</body></html>
