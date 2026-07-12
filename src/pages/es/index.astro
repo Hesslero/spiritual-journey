@@ -194,6 +194,20 @@ const schema = { '@context':'https://schema.org','@type':'Person',name:'Nathalie
   </script>
 
   <section class="contact" id="contact"><div class="contact-symbol" aria-hidden="true">✦</div><p>Comienza con una conversación de cortesía</p><h2>Tal vez tu siguiente paso<br/>sea simplemente <em>comenzar.</em></h2><div class="contact-actions"><a href={consultationHrefEs}>Escribir a Nathalie <span>↗</span></a><a href={phoneHref}>Llamar al {phoneDisplay}</a></div><div class="contact-meta"><span>{email}</span><span>Inglés y Español</span><span>Zoom · Teléfono · En Persona</span></div></section>
+  <a href="#top" id="back-to-top" class="back-to-top" aria-label="Subir al inicio">
+    <svg viewBox="0 0 24 24"><path d="M4 12l1.41 1.41L11 7.83V20h2V7.83l5.58 5.59L20 12l-8-8z"/></svg>
+  </a>
 </main>
 <footer><div><strong>Nathalie Bose-Silver</strong><span>Directora Espiritual Católica</span></div><nav><a href="#practice">Práctica</a><a href="#journey">Viaje</a><a href="#nathalie">Acerca de</a><a href="#contact">Contacto</a></nav><p>© {year} Nathalie Bose-Silver.<br/>El acompañamiento espiritual no sustituye la consejería, la psicoterapia, la atención médica ni los servicios de emergencia.</p></footer>
-<script>import '../../scripts/animations';</script></body></html>
+<script>
+  import '../../scripts/animations';
+
+  const backToTop = document.getElementById('back-to-top');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 400) {
+      backToTop?.classList.add('visible');
+    } else {
+      backToTop?.classList.remove('visible');
+    }
+  });
+</script></body></html>

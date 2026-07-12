@@ -194,6 +194,20 @@ const schema = { '@context':'https://schema.org','@type':'Person',name:'Nathalie
   </script>
 
   <section class="contact" id="contact"><div class="contact-symbol" aria-hidden="true">✦</div><p>Begin with a complimentary conversation</p><h2>Perhaps your next step<br/>is simply to <em>begin.</em></h2><div class="contact-actions"><a href={consultationHref}>Email Nathalie <span>↗</span></a><a href={phoneHref}>Call {phoneDisplay}</a></div><div class="contact-meta"><span>{email}</span><span>English & Spanish</span><span>Zoom · Phone · In person</span></div></section>
+  <a href="#top" id="back-to-top" class="back-to-top" aria-label="Back to top">
+    <svg viewBox="0 0 24 24"><path d="M4 12l1.41 1.41L11 7.83V20h2V7.83l5.58 5.59L20 12l-8-8z"/></svg>
+  </a>
 </main>
 <footer><div><strong>Nathalie Bose-Silver</strong><span>Catholic Spiritual Director</span></div><nav><a href="#practice">Practice</a><a href="#journey">Journey</a><a href="#nathalie">About</a><a href="#contact">Contact</a></nav><p>© {year} Nathalie Bose-Silver.<br/>Spiritual direction is not a substitute for counseling, psychotherapy, medical care, or emergency services.</p></footer>
-<script>import '../scripts/animations';</script></body></html>
+<script>
+  import '../scripts/animations';
+
+  const backToTop = document.getElementById('back-to-top');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 400) {
+      backToTop?.classList.add('visible');
+    } else {
+      backToTop?.classList.remove('visible');
+    }
+  });
+</script></body></html>
