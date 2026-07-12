@@ -1,6 +1,4 @@
 export const email = 'SacredGuideNBS@gmail.com';
-export const phoneDisplay = '321-231-0058';
-export const phoneHref = 'tel:+13212310058';
 export const consultationHref = `mailto:${email}?subject=Free%2030-Minute%20Spiritual%20Direction%20Consultation`;
 
 export const expectations = [

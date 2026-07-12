@@ -1,5 +1,5 @@
 ---
-import { consultationHref, consultationHrefEs, phoneHref } from '../data/site';
+import { consultationHref, consultationHrefEs } from '../data/site';
 interface Props {
   lang?: 'en' | 'es';
 }
@@ -12,8 +12,6 @@ const text = {
   practice: isEs ? 'La Práctica' : 'The Practice',
   journey: isEs ? 'El Viaje' : 'The Journey',
   nathalie: 'Nathalie',
-  call: isEs ? 'Llamar' : 'Call',
-  callNathalie: isEs ? 'Llamar a Nathalie' : 'Call Nathalie',
   begin: isEs ? 'Comenzar aquí' : 'Begin here',
   freeConsultation: isEs ? 'Consulta gratuita' : 'Free consultation'
 };
@@ -38,7 +36,6 @@ const nathalieHref  = isEs ? `${base}/es/#nathalie`  : `${base}/#nathalie`;
     <a href={nathalieHref}>{text.nathalie}</a>
   </nav>
   <div class="header-actions">
-    <a class="call-link" href={phoneHref}>{text.call}</a>
     <a class="header-cta" href={activeConsultationHref}>{text.begin} <span>↗</span></a>
     {isEs ? (
       <a href={enHref} class="lang-switch" aria-label="Switch to English">EN</a>
@@ -52,7 +49,6 @@ const nathalieHref  = isEs ? `${base}/es/#nathalie`  : `${base}/#nathalie`;
       <a href={practiceHref}>{text.practice}</a>
       <a href={journeyHref}>{text.journey}</a>
       <a href={nathalieHref}>{text.nathalie}</a>
-      <a href={phoneHref}>{text.callNathalie}</a>
       <a href={activeConsultationHref}>{text.freeConsultation}</a>
       {isEs ? (
         <a href={enHref} class="lang-switch-mobile">English (EN)</a>
