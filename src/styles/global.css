@@ -131,7 +131,3 @@ body{background:radial-gradient(circle at 78% 18%,rgba(255,187,67,.38),transpare
 @media(max-width:900px){.experience-path{min-height:970px;margin-left:30px}.experience-trail{inset:0 auto 0 0;width:150px;height:930px}.experience-trail path{d:path("M70 15C20 125 125 212 69 320S123 515 62 625s42 200 15 286")}.experience-walker{left:0;top:0}.station{position:absolute;left:125px!important;right:auto!important;width:calc(100% - 145px);min-height:185px}.station-1{top:15px;bottom:auto}.station-2{top:250px}.station-3{top:485px;bottom:auto}.station-4{top:720px}.station:after{left:-13px!important;top:50%!important;bottom:auto!important}}
 @media(max-width:650px){.experience-path{margin-left:0;min-height:auto;padding-left:34px;display:grid;gap:18px}.experience-trail{left:-42px;width:120px;height:100%}.experience-walker{display:none}.station{position:relative;inset:auto!important;left:auto!important;width:100%;min-height:0;opacity:1}.station:after{left:-42px!important}.experience-trail-draw{stroke-width:6}}
 @media(prefers-reduced-motion:reduce){.station{opacity:1}.experience-walker{display:none}.experience-trail-draw{stroke-dasharray:none!important;stroke-dashoffset:0!important}}
-.experience-three{position:absolute;z-index:1;inset:0;width:100%;height:100%;pointer-events:none;opacity:0;transition:opacity .45s ease}
-.experience-path.three-ready .experience-three{opacity:1}
-.experience-path.three-ready .experience-trail,.experience-path.three-ready .experience-walker{opacity:0}
-.experience-path.three-ready .station{z-index:3}
