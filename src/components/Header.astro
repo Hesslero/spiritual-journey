@@ -53,4 +53,15 @@ const activeConsultationHref = isEs ? consultationHrefEs : consultationHref;
     </nav>
   </details>
 </header>
+<script>
+  const details = document.querySelector('details.menu');
+  if (details) {
+    const navLinks = details.querySelectorAll('nav a');
+    navLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        details.removeAttribute('open');
+      });
+    });
+  }
+</script>
 
