@@ -51,3 +51,52 @@ footer{background:#08291d}
 .journey-path{position:absolute;z-index:0;left:-10%;bottom:-115px;width:67%;height:250px;border:30px solid rgba(18,63,42,.09);border-left-color:transparent;border-bottom-color:transparent;border-radius:50%;transform:rotate(-7deg);transform-origin:center;pointer-events:none}
 .hero-grid{position:relative;z-index:1}
 @media(prefers-reduced-motion:reduce){.journey-path,.dove-mark,.butterfly,.logo-glow,.journey-art>img,.botanical{transform:none!important;opacity:1!important}}
+
+/* Elevated navigation */
+.site-header{height:96px;padding:13px 0;background:linear-gradient(180deg,rgba(255,245,223,.96),rgba(255,245,223,.72));border:0;box-shadow:none}
+.nav-wrap{height:70px;padding:7px 8px 7px 12px;border:1px solid rgba(112,59,25,.14);border-radius:22px;background:rgba(255,250,237,.84);box-shadow:0 12px 35px rgba(73,39,19,.1),inset 0 1px 0 rgba(255,255,255,.8)}
+.brand{gap:11px;padding-right:20px}
+.brand-mark{width:51px;height:51px;box-shadow:0 4px 14px rgba(99,47,18,.18);border:2px solid #f2c27f}
+.brand-copy strong{font-size:1.28rem;letter-spacing:-.015em;color:#27231e}
+.brand-copy small{display:flex;align-items:center;gap:6px;margin-top:5px;color:#805139;font-size:.61rem;letter-spacing:.15em}
+.brand-copy small i{width:6px;height:6px;border-radius:50%;background:var(--terra);box-shadow:0 0 0 3px rgba(201,70,31,.12)}
+.desktop-nav{gap:12px;height:100%}
+.nav-links{display:flex;align-items:center;height:100%;padding:4px;border-radius:15px;background:rgba(244,215,172,.3)}
+.nav-links a{position:relative;display:flex;align-items:center;height:100%;padding:0 15px;border-radius:11px;text-decoration:none;color:#51473e;font-size:.8rem;font-weight:600;transition:color .2s,background .2s,transform .2s}
+.nav-links a:after{content:"";position:absolute;left:50%;bottom:7px;width:4px;height:4px;border-radius:50%;background:var(--terra);opacity:0;transform:translate(-50%,4px);transition:.2s}
+.nav-links a:hover{background:rgba(255,250,237,.8);color:var(--forest);transform:translateY(-1px)}
+.nav-links a:hover:after{opacity:1;transform:translate(-50%,0)}
+.header-cta{height:54px;display:flex;align-items:center;gap:13px;padding:0 7px 0 19px;border-radius:16px;background:linear-gradient(135deg,#c9461f,#ed711d);color:white;text-decoration:none;font-size:.79rem;font-weight:600;box-shadow:0 7px 17px rgba(176,66,25,.24);transition:transform .2s,box-shadow .2s}
+.header-cta b{display:grid;place-items:center;width:39px;height:39px;border-radius:12px;background:rgba(255,255,255,.18);font-size:1rem;font-weight:400}
+.header-cta:hover{transform:translateY(-2px);box-shadow:0 11px 22px rgba(176,66,25,.3)}
+.mobile-nav summary{border-radius:14px;background:linear-gradient(135deg,var(--forest),#24613e);box-shadow:0 6px 15px rgba(18,63,42,.2)}
+.mobile-nav summary span{background:#fff!important;transition:transform .2s}
+.mobile-nav[open] summary span:first-child{transform:translateY(3.5px) rotate(45deg)}
+.mobile-nav[open] summary span:last-child{transform:translateY(-3.5px) rotate(-45deg)}
+.mobile-nav nav{top:58px!important;width:min(300px,calc(100vw - 40px))!important;padding:18px!important;border-radius:20px!important;background:rgba(255,248,232,.98)!important;border-color:#e7bd84!important;box-shadow:0 22px 55px rgba(62,34,17,.22)!important}
+.mobile-nav nav>small{padding:3px 11px 11px;text-transform:uppercase;letter-spacing:.18em;color:#9a5a35;font-size:.62rem;font-weight:700}
+.mobile-nav nav>a:not(.mobile-menu-cta){display:flex;justify-content:space-between;align-items:center;border-top:1px solid rgba(126,75,41,.12);font-family:var(--serif);font-size:1.28rem;color:#332d27}
+.mobile-nav nav>a b{font-family:var(--sans);font-size:.6rem;color:#a26846}
+.mobile-menu-cta{display:flex;justify-content:space-between;margin-top:10px;padding:14px 16px!important;border-radius:13px;background:linear-gradient(135deg,#c9461f,#ed711d);color:white;font-size:.82rem!important;font-family:var(--sans)!important;font-weight:600;box-shadow:0 7px 16px rgba(176,66,25,.2)}
+@media(max-width:900px){.site-header{height:88px;padding:10px 0}.nav-wrap{height:68px}.mobile-nav summary{display:flex!important;flex-direction:column;justify-content:center}.mobile-nav summary span{width:20px;margin:auto}.brand{padding-right:5px}}
+@media(max-width:420px){.nav-wrap{padding-left:8px}.brand-mark{width:46px;height:46px}.brand-copy strong{font-size:1rem}.brand-copy small{font-size:.52rem;letter-spacing:.1em}}
+
+/* Header blends into the page background */
+.site-header{background:var(--header-hero-bg);backdrop-filter:none}
+.nav-wrap{background:var(--soft);box-shadow:0 12px 35px rgba(73,39,19,.09)}
+
+/* One continuous sunset surface shared by header and hero */
+body{background:radial-gradient(circle at 78% 18%,rgba(255,187,67,.38),transparent 25%),radial-gradient(circle at 10% 20%,rgba(218,76,27,.12),transparent 32%),linear-gradient(145deg,#fff0d7 0,#f8d5aa 42%,#efad68 100%) no-repeat}
+.site-header,.hero{background:transparent}
+.hero:after{content:none}
+
+/* Keep emblem motifs subtle and behind the authorized logo */
+.journey-art{isolation:isolate}
+.journey-art .logo-glow{z-index:0}
+.journey-art .dove-mark,.journey-art .butterfly{z-index:1;display:block;height:auto;filter:none}
+.journey-art .dove-mark{width:88px;right:-4px;top:2px;opacity:.42}
+.journey-art .butterfly{width:38px;opacity:.52}
+.journey-art .butterfly-one{left:5px;top:20%}
+.journey-art .butterfly-two{right:3px;bottom:24%;width:30px}
+.journey-art>img{z-index:2}
+.journey-art .art-note{z-index:3}

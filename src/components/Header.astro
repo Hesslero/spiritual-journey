@@ -5,15 +5,15 @@ import { consultationHref } from '../data/site';
   <div class="container nav-wrap">
     <a class="brand" href="#top" aria-label="Nathalie Bose-Silver, home">
       <span class="brand-mark"><img src="/images/spiritual-journey/spiritual-journey-logo.jpeg" alt="" /></span>
-      <span><strong>Nathalie Bose-Silver</strong><small>Spiritual Director</small></span>
+      <span class="brand-copy"><strong>Nathalie Bose-Silver</strong><small><i aria-hidden="true"></i>Catholic Spiritual Director</small></span>
     </a>
     <nav class="desktop-nav" aria-label="Main navigation">
-      <a href="#about">About</a><a href="#expect">What to Expect</a><a href="#approach">Approach</a><a href="#contact">Contact</a>
-      <a class="button button-small" href={consultationHref}>Free Consultation</a>
+      <div class="nav-links"><a href="#about">About</a><a href="#expect">Experience</a><a href="#approach">Approach</a><a href="#contact">Contact</a></div>
+      <a class="header-cta" href={consultationHref}><span>Free consultation</span><b aria-hidden="true">↗</b></a>
     </nav>
     <details class="mobile-nav">
-      <summary aria-label="Open navigation"><span></span><span></span><span></span></summary>
-      <nav aria-label="Mobile navigation"><a href="#about">About</a><a href="#expect">What to Expect</a><a href="#approach">Approach</a><a href="#contact">Contact</a><a href={consultationHref}>Free Consultation</a></nav>
+      <summary aria-label="Open navigation"><span></span><span></span></summary>
+      <nav aria-label="Mobile navigation"><small>Explore</small><a href="#about"><span>About</span><b>01</b></a><a href="#expect"><span>Experience</span><b>02</b></a><a href="#approach"><span>Approach</span><b>03</b></a><a href="#contact"><span>Contact</span><b>04</b></a><a class="mobile-menu-cta" href={consultationHref}>Free Consultation <span>↗</span></a></nav>
     </details>
   </div>
 </header>
