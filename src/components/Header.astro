@@ -6,6 +6,8 @@ interface Props {
 const { lang = 'en' } = Astro.props;
 
 const isEs = lang === 'es';
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+
 const text = {
   practice: isEs ? 'La Práctica' : 'The Practice',
   journey: isEs ? 'El Viaje' : 'The Journey',
@@ -17,38 +19,45 @@ const text = {
 };
 
 const activeConsultationHref = isEs ? consultationHrefEs : consultationHref;
+const homeHref      = isEs ? `${base}/es/` : `${base}/`;
+const enHref        = `${base}/`;
+const esHref        = `${base}/es/`;
+const logoSrc       = `${base}/images/spiritual-journey/spiritual-journey-logo.png`;
+const practiceHref  = isEs ? `${base}/es/#practice`  : `${base}/#practice`;
+const journeyHref   = isEs ? `${base}/es/#journey`   : `${base}/#journey`;
+const nathalieHref  = isEs ? `${base}/es/#nathalie`  : `${base}/#nathalie`;
 ---
 <header class="site-header">
-  <a class="brand" href={isEs ? "/es/#top" : "#top"} aria-label={isEs ? "Nathalie Bose-Silver, inicio" : "Nathalie Bose-Silver, home"}>
-    <img src="/images/spiritual-journey/spiritual-journey-logo.png" alt="" />
+  <a class="brand" href={homeHref} aria-label={isEs ? "Nathalie Bose-Silver, inicio" : "Nathalie Bose-Silver, home"}>
+    <img src={logoSrc} alt="" />
     <span><strong>Nathalie</strong><small>Bose-Silver</small></span>
   </a>
   <nav class="main-nav" aria-label={isEs ? "Navegación principal" : "Main navigation"}>
-    <a href={isEs ? "/es/#practice" : "#practice"}>{text.practice}</a>
-    <a href={isEs ? "/es/#journey" : "#journey"}>{text.journey}</a>
-    <a href={isEs ? "/es/#nathalie" : "#nathalie"}>{text.nathalie}</a>
+    <a href={practiceHref}>{text.practice}</a>
+    <a href={journeyHref}>{text.journey}</a>
+    <a href={nathalieHref}>{text.nathalie}</a>
   </nav>
   <div class="header-actions">
     <a class="call-link" href={phoneHref}>{text.call}</a>
     <a class="header-cta" href={activeConsultationHref}>{text.begin} <span>↗</span></a>
     {isEs ? (
-      <a href="/" class="lang-switch" aria-label="Switch to English">EN</a>
+      <a href={enHref} class="lang-switch" aria-label="Switch to English">EN</a>
     ) : (
-      <a href="/es/" class="lang-switch" aria-label="Cambiar a Español">ES</a>
+      <a href={esHref} class="lang-switch" aria-label="Cambiar a Español">ES</a>
     )}
   </div>
   <details class="menu">
     <summary aria-label={isEs ? "Abrir menú" : "Open menu"}><i></i><i></i></summary>
     <nav>
-      <a href={isEs ? "/es/#practice" : "#practice"}>{text.practice}</a>
-      <a href={isEs ? "/es/#journey" : "#journey"}>{text.journey}</a>
-      <a href={isEs ? "/es/#nathalie" : "#nathalie"}>{text.nathalie}</a>
+      <a href={practiceHref}>{text.practice}</a>
+      <a href={journeyHref}>{text.journey}</a>
+      <a href={nathalieHref}>{text.nathalie}</a>
       <a href={phoneHref}>{text.callNathalie}</a>
       <a href={activeConsultationHref}>{text.freeConsultation}</a>
       {isEs ? (
-        <a href="/" class="lang-switch-mobile">English (EN)</a>
+        <a href={enHref} class="lang-switch-mobile">English (EN)</a>
       ) : (
-        <a href="/es/" class="lang-switch-mobile">Español (ES)</a>
+        <a href={esHref} class="lang-switch-mobile">Español (ES)</a>
       )}
     </nav>
   </details>
