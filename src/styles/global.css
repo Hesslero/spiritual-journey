@@ -135,3 +135,4 @@
 .back-to-top.visible{opacity:1;pointer-events:auto;transform:translateY(0)}
 .back-to-top:hover{background:var(--terra);transform:translateY(-3px)}
 .back-to-top svg{width:22px;height:22px;fill:currentColor}
+.fee-note{margin-top:14px;font-size:0.68rem;color:#8e6040;text-transform:uppercase;letter-spacing:0.1em;opacity:0.85}

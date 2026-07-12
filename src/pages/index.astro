@@ -12,7 +12,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 <main id="main">
   <section class="hero">
     <div class="hero-index" aria-hidden="true"><i></i><small>Welcome</small></div>
-    <div class="hero-copy"><p class="kicker">Catholic spiritual direction · English & Spanish</p><h1>A quieter way to hear what your <em>heart</em> already knows.</h1><p class="hero-lead">Step away from the noise. Enter a confidential, prayerful conversation where you can notice God’s movement and meet your life with clarity, courage, and grace.</p><div class="hero-actions"><a class="primary-link" href={consultationHref}>Free 30-minute conversation <span>↗</span></a><a class="text-link" href={phoneHref}>{phoneDisplay} <span>→</span></a></div></div>
+    <div class="hero-copy"><p class="kicker">Catholic spiritual direction · English & Spanish</p><h1>A quieter way to hear what your <em>heart</em> already knows.</h1><p class="hero-lead">Step away from the noise. Enter a confidential, prayerful conversation where you can notice God’s movement and meet your life with clarity, courage, and grace.</p><div class="hero-actions"><a class="primary-link" href={consultationHref}>Free 30-minute conversation <span>↗</span></a><a class="text-link" href={phoneHref}>{phoneDisplay} <span>→</span></a></div><p class="fee-note">Free initial consultation · Fee applies for ongoing sessions</p></div>
     <div class="hero-visual"><div class="orbit orbit-one"></div><div class="orbit orbit-two"></div><img src={`${base}/images/spiritual-journey/spiritual-journey-logo.png`} width="1024" height="1024" alt="Spiritual Journey emblem featuring a winding path, butterflies, hands holding a flame, and a dove."/><p><span>✦</span>A sacred pause<br/>for your unfolding path</p></div>
     <a class="scroll-cue" href="#practice"><span>Scroll to explore</span><i>↓</i></a>
   </section>
@@ -194,7 +194,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
     });
   </script>
 
-  <section class="contact" id="contact"><div class="contact-symbol" aria-hidden="true">✦</div><p>Begin with a complimentary conversation</p><h2>Perhaps your next step<br/>is simply to <em>begin.</em></h2><div class="contact-actions"><a href={consultationHref}>Email Nathalie <span>↗</span></a><a href={phoneHref}>Call {phoneDisplay}</a></div><div class="contact-meta"><span>{email}</span><span>English & Spanish</span><span>Zoom · Phone · In person</span></div></section>
+  <section class="contact" id="contact"><div class="contact-symbol" aria-hidden="true">✦</div><p>Begin with a complimentary conversation</p><h2>Perhaps your next step<br/>is simply to <em>begin.</em></h2><div class="contact-actions"><a href={consultationHref}>Email Nathalie <span>↗</span></a><a href={phoneHref}>Call {phoneDisplay}</a></div><p class="fee-note" style="color:rgba(255,244,217,0.65);margin-top:18px;font-size:0.72rem;letter-spacing:0.1em;text-transform:uppercase;">Free initial consultation · Fee applies for ongoing sessions</p><div class="contact-meta"><span>{email}</span><span>English & Spanish</span><span>Zoom · Phone · In person</span></div></section>
   <a href="#top" id="back-to-top" class="back-to-top" aria-label="Back to top">
     <svg viewBox="0 0 24 24"><path d="M4 12l1.41 1.41L11 7.83V20h2V7.83l5.58 5.59L20 12l-8-8z"/></svg>
   </a>
