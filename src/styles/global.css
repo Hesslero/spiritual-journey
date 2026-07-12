@@ -48,3 +48,6 @@ footer{background:#08291d}
 .butterfly-two{right:-28px;bottom:23%;width:34px;color:var(--forest);transform:rotate(17deg)}
 .art-note{border:1px solid rgba(143,64,27,.15);color:#71351d}
 @media(max-width:650px){.dove-mark{right:0;top:-8px;width:72px}.butterfly-one{left:2px}.butterfly-two{right:0}.hero:before{right:8%;bottom:-145px}}
+.journey-path{position:absolute;z-index:0;left:-10%;bottom:-115px;width:67%;height:250px;border:30px solid rgba(18,63,42,.09);border-left-color:transparent;border-bottom-color:transparent;border-radius:50%;transform:rotate(-7deg);transform-origin:center;pointer-events:none}
+.hero-grid{position:relative;z-index:1}
+@media(prefers-reduced-motion:reduce){.journey-path,.dove-mark,.butterfly,.logo-glow,.journey-art>img,.botanical{transform:none!important;opacity:1!important}}
