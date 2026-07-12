@@ -1,4 +1,5 @@
 import { animate, stagger } from 'animejs';
+import './loading-presentation';
 
 const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 

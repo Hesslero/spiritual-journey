@@ -2,6 +2,7 @@
 import Header from '../components/Header.astro';
 import Icon from '../components/Icon.astro';
 import JourneyArt from '../components/JourneyArt.astro';
+import LoadingPresentation from '../components/LoadingPresentation.astro';
 import { approach, consultationHref, email, expectations, phoneDisplay, phoneHref } from '../data/site';
 import '../styles/global.css';
 const year = new Date().getFullYear();
@@ -17,7 +18,7 @@ const schema = { '@context': 'https://schema.org', '@type': 'Person', name: 'Nat
   <script is:inline type="application/ld+json" set:html={JSON.stringify(schema)} />
 </head>
 <body id="top">
-  <a class="skip-link" href="#main">Skip to content</a><Header />
+  <LoadingPresentation /><a class="skip-link" href="#main">Skip to content</a><Header />
   <main id="main">
     <section class="hero"><div class="journey-path" aria-hidden="true"></div><div class="container hero-grid"><div class="hero-copy"><p class="eyebrow">Catholic Spiritual Direction <span>·</span> English & Spanish</p><h1>Find clarity, connection, and <em>grace</em> along your spiritual journey.</h1><p class="lead">Spiritual direction offers a prayerful, confidential space to notice how God is moving in your life. Nathalie accompanies each person with compassionate listening, thoughtful reflection, and respect for their unique journey.</p><div class="actions"><a class="button" href={consultationHref}>Schedule a Free 30-Minute Consultation</a><a class="button button-outline" href={phoneHref}>Call {phoneDisplay}</a></div><p class="fine-print">Regular one-hour sessions are available monthly by Zoom or phone. Fee applies.</p></div><JourneyArt /></div></section>
 
