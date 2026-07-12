@@ -1,42 +1,213 @@
 ---
 import Header from '../components/Header.astro';
 import Icon from '../components/Icon.astro';
-import JourneyArt from '../components/JourneyArt.astro';
-import LoadingPresentation from '../components/LoadingPresentation.astro';
 import { approach, consultationHref, email, expectations, phoneDisplay, phoneHref } from '../data/site';
 import '../styles/global.css';
 const year = new Date().getFullYear();
-const schema = { '@context': 'https://schema.org', '@type': 'Person', name: 'Nathalie Bose-Silver', jobTitle: 'Catholic Spiritual Director', telephone: '+1-321-231-0058', email, areaServed: ['Oviedo, Florida', 'Winter Park, Florida'], knowsLanguage: ['English', 'Spanish'] };
+const schema = { '@context':'https://schema.org','@type':'Person',name:'Nathalie Bose-Silver',jobTitle:'Catholic Spiritual Director',telephone:'+1-321-231-0058',email,areaServed:['Oviedo, Florida','Winter Park, Florida'],knowsLanguage:['English','Spanish'] };
 ---
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width" />
-  <title>Nathalie Bose-Silver | Catholic Spiritual Director</title>
-  <meta name="description" content="Compassionate Catholic spiritual direction in English and Spanish. Schedule a free 30-minute consultation with Nathalie Bose-Silver by phone or email." />
-  <meta property="og:title" content="Nathalie Bose-Silver | Spiritual Direction" /><meta property="og:description" content="Personalized, prayerful spiritual direction in English and Spanish." /><meta property="og:type" content="website" /><meta property="og:image" content="/images/spiritual-journey/spiritual-journey-logo.jpeg" />
-  <script is:inline type="application/ld+json" set:html={JSON.stringify(schema)} />
-</head>
-<body id="top">
-  <LoadingPresentation /><a class="skip-link" href="#main">Skip to content</a><Header />
-  <main id="main">
-    <section class="hero"><div class="journey-path" aria-hidden="true"></div><div class="container hero-grid"><div class="hero-copy"><p class="eyebrow">Catholic Spiritual Direction <span>·</span> English & Spanish</p><h1>Find clarity, connection, and <em>grace</em> along your spiritual journey.</h1><p class="lead">Spiritual direction offers a prayerful, confidential space to notice how God is moving in your life. Nathalie accompanies each person with compassionate listening, thoughtful reflection, and respect for their unique journey.</p><div class="actions"><a class="button" href={consultationHref}>Schedule a Free 30-Minute Consultation</a><a class="button button-outline" href={phoneHref}>Call {phoneDisplay}</a></div><p class="fine-print">Regular one-hour sessions are available monthly by Zoom or phone. Fee applies.</p></div><JourneyArt /></div></section>
+<!doctype html><html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width"/><title>Nathalie Bose-Silver | Catholic Spiritual Director</title><meta name="description" content="Compassionate Catholic spiritual direction in English and Spanish. Begin with a free 30-minute consultation."/><meta property="og:title" content="Nathalie Bose-Silver | Spiritual Direction"/><meta property="og:description" content="A prayerful space to notice grace and discern your path."/><meta property="og:type" content="website"/><meta property="og:image" content="/images/spiritual-journey/spiritual-journey-logo.png"/><script is:inline type="application/ld+json" set:html={JSON.stringify(schema)}/></head>
+<body id="top"><a class="skip" href="#main">Skip to content</a><Header/>
+<main id="main">
+  <section class="hero">
+    <div class="hero-index" aria-hidden="true"><i></i><small>Welcome</small></div>
+    <div class="hero-copy"><p class="kicker">Catholic spiritual direction · English & Spanish</p><h1>A quieter way to hear what your <em>heart</em> already knows.</h1><p class="hero-lead">Step away from the noise. Enter a confidential, prayerful conversation where you can notice God’s movement and meet your life with clarity, courage, and grace.</p><div class="hero-actions"><a class="primary-link" href={consultationHref}>Free 30-minute conversation <span>↗</span></a><a class="text-link" href={phoneHref}>{phoneDisplay} <span>→</span></a></div></div>
+    <div class="hero-visual"><div class="orbit orbit-one"></div><div class="orbit orbit-two"></div><img src="/images/spiritual-journey/spiritual-journey-logo.png" width="1024" height="1024" alt="Spiritual Journey emblem featuring a winding path, butterflies, hands holding a flame, and a dove."/><p><span>✦</span>A sacred pause<br/>for your unfolding path</p></div>
+    <a class="scroll-cue" href="#practice"><span>Scroll to explore</span><i>↓</i></a>
+  </section>
 
-    <section class="section intro" id="direction"><div class="container narrow"><p class="section-label">A sacred conversation</p><h2>What Is Spiritual Direction?</h2><div class="intro-grid"><p>Spiritual direction is a sacred conversation centered on your relationship with God. It provides time to slow down, reflect, pray, and become more attentive to grace in everyday life.</p><p>A spiritual director does not provide therapy, diagnosis, or direct answers. Instead, Nathalie accompanies you as you discern your unfolding path and recognize the Divine within and around you.</p></div><aside><span aria-hidden="true">✦</span><strong>Spiritual direction is not counseling or therapy.</strong><span>It is a prayerful practice of listening and discernment.</span></aside></div></section>
+  <section class="manifesto" id="practice">
+    <div class="butterfly butterfly-1" aria-hidden="true">
+      <svg viewBox="0 0 24 24"><path d="M12 10c-.7-2-3-5.5-6-5.5C3 4.5 1 6.5 1 9.5c0 3 2.5 5.5 5.5 6.5-.5 1-1.5 2.5-3 3.5 0 0 2-.5 3.5-2 .5.5 1 1 1.5 1s1-.5 1.5-1c1.5 1.5 3.5 2 3.5 2-1.5-1-2.5-2.5-3-3.5 3-1 5.5-3.5 5.5-6.5 0-3-2-5-5-5-3 0-5.3 3.5-6 5.5z"/></svg>
+    </div>
+    <div class="butterfly butterfly-2" aria-hidden="true">
+      <svg viewBox="0 0 24 24"><path d="M12 10c-.7-2-3-5.5-6-5.5C3 4.5 1 6.5 1 9.5c0 3 2.5 5.5 5.5 6.5-.5 1-1.5 2.5-3 3.5 0 0 2-.5 3.5-2 .5.5 1 1 1.5 1s1-.5 1.5-1c1.5 1.5 3.5 2 3.5 2-1.5-1-2.5-2.5-3-3.5 3-1 5.5-3.5 5.5-6.5 0-3-2-5-5-5-3 0-5.3 3.5-6 5.5z"/></svg>
+    </div>
+    <div class="butterfly butterfly-3" aria-hidden="true">
+      <svg viewBox="0 0 24 24"><path d="M12 10c-.7-2-3-5.5-6-5.5C3 4.5 1 6.5 1 9.5c0 3 2.5 5.5 5.5 6.5-.5 1-1.5 2.5-3 3.5 0 0 2-.5 3.5-2 .5.5 1 1 1.5 1s1-.5 1.5-1c1.5 1.5 3.5 2 3.5 2-1.5-1-2.5-2.5-3-3.5 3-1 5.5-3.5 5.5-6.5 0-3-2-5-5-5-3 0-5.3 3.5-6 5.5z"/></svg>
+    </div>
+    <div class="butterfly butterfly-4" aria-hidden="true">
+      <svg viewBox="0 0 24 24"><path d="M12 10c-.7-2-3-5.5-6-5.5C3 4.5 1 6.5 1 9.5c0 3 2.5 5.5 5.5 6.5-.5 1-1.5 2.5-3 3.5 0 0 2-.5 3.5-2 .5.5 1 1 1.5 1s1-.5 1.5-1c1.5 1.5 3.5 2 3.5 2-1.5-1-2.5-2.5-3-3.5 3-1 5.5-3.5 5.5-6.5 0-3-2-5-5-5-3 0-5.3 3.5-6 5.5z"/></svg>
+    </div>
+    <div class="butterfly butterfly-5" aria-hidden="true">
+      <svg viewBox="0 0 24 24"><path d="M12 10c-.7-2-3-5.5-6-5.5C3 4.5 1 6.5 1 9.5c0 3 2.5 5.5 5.5 6.5-.5 1-1.5 2.5-3 3.5 0 0 2-.5 3.5-2 .5.5 1 1 1.5 1s1-.5 1.5-1c1.5 1.5 3.5 2 3.5 2-1.5-1-2.5-2.5-3-3.5 3-1 5.5-3.5 5.5-6.5 0-3-2-5-5-5-3 0-5.3 3.5-6 5.5z"/></svg>
+    </div>
+    <div class="butterfly butterfly-6" aria-hidden="true">
+      <svg viewBox="0 0 24 24"><path d="M12 10c-.7-2-3-5.5-6-5.5C3 4.5 1 6.5 1 9.5c0 3 2.5 5.5 5.5 6.5-.5 1-1.5 2.5-3 3.5 0 0 2-.5 3.5-2 .5.5 1 1 1.5 1s1-.5 1.5-1c1.5 1.5 3.5 2 3.5 2-1.5-1-2.5-2.5-3-3.5 3-1 5.5-3.5 5.5-6.5 0-3-2-5-5-5-3 0-5.3 3.5-6 5.5z"/></svg>
+    </div>
+    <div class="section-number">The practice</div><div class="manifesto-title"><p>Spiritual direction is</p><h2>Not advice.<br/>Not therapy.<br/><em>Sacred attention.</em></h2><figure class="practice-image"><img src="/images/spiritual-journey/spiritual-practice.png" alt="An open Bible, a simple wooden rosary, and a warm lit candle on a rustic wooden table, suggesting a prayerful and sacred space." loading="lazy"/><figcaption>A space to listen beyond the noise.</figcaption></figure></div><div class="manifesto-copy"><p>It is a conversation centered on your relationship with God—a place to slow down, reflect, pray, and become attentive to grace in ordinary life.</p><p>Nathalie does not diagnose or hand you answers. She accompanies you as you recognize the Divine within and around you, and discern the path that is already unfolding.</p><aside>“A spiritual director is one who helps another to recognize and follow the inspirations of grace.”</aside></div></section>
 
-    <section class="section expectations" id="expect"><div class="container"><div class="section-heading"><p class="section-label">Your experience</p><h2>Walk the Path Together</h2><p>Each conversation is one step along a gentle journey of presence, reflection, and grace.</p></div><div class="experience-path"><svg class="experience-trail" viewBox="0 0 1000 460" preserveAspectRatio="none" aria-hidden="true"><path class="experience-trail-base" d="M45 382C128 254 195 112 310 120S438 365 558 350 690 91 808 109s120 132 154 226"/><path class="experience-trail-draw" d="M45 382C128 254 195 112 310 120S438 365 558 350 690 91 808 109s120 132 154 226"/></svg><div class="experience-walker" aria-hidden="true"><svg viewBox="0 0 48 68"><circle cx="25" cy="9" r="6"/><path d="M24 16c-3 9-5 17-3 25m2-18 12 11m-14-6L10 39m11 2-9 20m10-20 14 18m2-34 3 36"/></svg></div>{expectations.map(([icon,title,text], i) => <article class={`feature-card station station-${i + 1}`}><span class="station-number">0{i + 1}</span><div class="icon"><Icon name={icon} /></div><h3>{title}</h3><p>{text}</p></article>)}</div></div></section>
+  <section class="path-section" id="journey"><div class="path-heading"><div><span class="section-number">The journey</span><h2>Four movements.<br/>One unfolding path.</h2></div><p>Monthly, one-hour conversations shaped around your life—not a formula.</p></div><div class="path-layout"><div class="path-line" aria-hidden="true"><span class="path-progress"></span></div>{expectations.map(([icon,title,text],i)=><article class="path-step"><div class="step-icon"><Icon name={icon}/></div><div><h3>{title}</h3><p>{text}</p></div></article>)}</div></section>
 
-    <section class="section approach-section" id="approach"><div class="container approach-wrap"><div class="approach-intro"><p class="section-label">My approach</p><h2>A Heart-Centered Approach</h2><p>Every session is an invitation to pause, listen deeply, and explore what is moving within your heart.</p><span class="botanical" aria-hidden="true">❧</span></div><div class="approach-list">{approach.map(([title,text], i) => <article><span>0{i + 1}</span><div><h3>{title}</h3><p>{text}</p></div></article>)}</div></div></section>
+  <section class="approach"><div class="approach-sticky"><span class="section-number">The approach</span><h2>Held with care.<br/>Guided by grace.</h2><p>Every session is an invitation to pause and listen deeply to what is moving within your heart.</p></div><div class="approach-panels">{approach.map(([title,text],i)=><article><h3>{title}</h3><p>{text}</p></article>)}</div></section>
 
-    <section class="section about" id="about"><div class="container about-grid"><div class="portrait-placeholder" aria-hidden="true"><div class="sun"></div><span>NBS</span><p>Compassionate presence<br/>Prayerful listening</p></div><div><p class="section-label">Your spiritual companion</p><h2>Meet Nathalie Bose-Silver</h2><p>Nathalie is a certified professional spiritual director through the Sacred Presence Program at San Pedro Center, a ministry of the Diocese of Orlando. She is also a member of Spiritual Directors International.</p><p>Rooted in the Catholic faith, Nathalie offers spiritual direction in both English and Spanish and welcomes seekers from diverse backgrounds into heart-centered conversations grounded in sacred trust.</p><p>Her experience includes serving in adult and youth faith formation and founding a nonprofit rosary-making ministry that supports deeper devotion and prayer.</p><div class="chips"><span>Certified Spiritual Director</span><span>English & Spanish</span><span>SDI Member</span></div></div></div></section>
+  <section class="profile" id="nathalie"><figure class="profile-mark profile-photo"><img src="/images/spiritual-journey/profile-pic.png" alt="Portrait of Nathalie Bose-Silver smiling in an orange jacket." loading="lazy"/><figcaption>Compassionate presence · Prayerful listening</figcaption></figure><div class="profile-copy"><span class="section-number">Your companion</span><h2>Meet Nathalie<br/>Bose-Silver.</h2><p class="profile-intro">A certified professional spiritual director rooted in the Catholic faith and open to the unique sacred story of every person.</p><div class="profile-columns"><p>Nathalie completed the Sacred Presence Program at San Pedro Center, a ministry of the Diocese of Orlando, and is a member of Spiritual Directors International.</p><p>Her experience includes adult and youth faith formation and founding a nonprofit rosary-making ministry supporting deeper devotion and prayer.</p></div><div class="credentials"><span>Certified Spiritual Director</span><span>English & Spanish</span><span>SDI Member</span></div></div></section>
 
-    <section class="section meeting"><div class="container"><div class="section-heading"><p class="section-label">Flexible and personal</p><h2>Where We Meet</h2><p>Sessions are available by appointment in a quiet place where you can be present and uninterrupted.</p></div><div class="meeting-grid"><article><div class="icon"><Icon name="video" /></div><h3>Zoom</h3><p>Connect face-to-face from a private, comfortable space of your choosing.</p><a href={consultationHref}>Email to schedule <span>→</span></a></article><article><div class="icon"><Icon name="phone" /></div><h3>Phone</h3><p>A simple, accessible way to meet from wherever you feel most at ease.</p><a href={phoneHref}>Call now <span>→</span></a></article><article><div class="icon"><Icon name="place" /></div><h3>In Person</h3><p>By appointment at Most Precious Blood Catholic Church in Oviedo or San Pedro Center in Winter Park.</p><a href={consultationHref}>Ask about availability <span>→</span></a></article></div></div></section>
+  <section class="meeting" id="meeting-section">
+    <div class="meeting-intro">
+      <span class="section-number">Where we meet</span>
+      <h2>Wherever you can<br/>be fully present.</h2>
+    </div>
+    
+    <div class="tabs-container">
+      <div class="tabs-nav" role="tablist" aria-label="Meeting options">
+        <button class="tab-btn active" role="tab" aria-selected="true" aria-controls="panel-zoom" id="tab-zoom">
+          <Icon name="video" />
+          <span>Zoom</span>
+        </button>
+        <button class="tab-btn" role="tab" aria-selected="false" aria-controls="panel-phone" id="tab-phone">
+          <Icon name="phone" />
+          <span>Phone</span>
+        </button>
+        <button class="tab-btn" role="tab" aria-selected="false" aria-controls="panel-inperson" id="tab-inperson">
+          <Icon name="place" />
+          <span>In person</span>
+        </button>
+        <div class="tabs-indicator"></div>
+      </div>
 
-    <section class="final-cta" id="contact"><div class="container"><p class="section-label">Your first conversation is complimentary</p><h2>Ready to explore your spiritual journey?</h2><p>Begin with a complimentary 30-minute conversation to ask questions, learn what spiritual direction can offer, and see whether it feels right for you.</p><div class="actions"><a class="button button-light" href={consultationHref}>Email Nathalie</a><a class="button button-ghost" href={phoneHref}>Call {phoneDisplay}</a></div><div class="contact-line"><a href={`mailto:${email}`}>{email}</a><span>•</span><a href={phoneHref}>{phoneDisplay}</a><span>•</span><span>English & Spanish</span></div></div></section>
-  </main>
-  <footer><div class="container footer-grid"><div><a class="brand footer-brand" href="#top"><span class="brand-mark"><img src="/images/spiritual-journey/spiritual-journey-logo.jpeg" alt="" /></span><span><strong>Nathalie Bose-Silver</strong><small>Catholic Spiritual Director</small></span></a><a href={phoneHref}>{phoneDisplay}</a><a href={`mailto:${email}`}>{email}</a></div><nav aria-label="Footer navigation"><a href="#about">About</a><a href="#expect">What to Expect</a><a href="#contact">Contact</a><a href="#privacy">Privacy</a></nav></div><div class="container legal" id="privacy"><p>Spiritual direction is not a substitute for counseling, psychotherapy, medical care, or emergency services.</p><p>© {year} Nathalie Bose-Silver. All rights reserved.</p></div></footer>
-  <nav class="mobile-actions" aria-label="Quick contact"><a href={phoneHref}><Icon name="phone" /> Call</a><a href={consultationHref}>✉ Email</a></nav>
+      <div class="tabs-window">
+        <div class="tabs-slider">
+          <div class="tab-panel" id="panel-zoom" role="tabpanel" aria-labelledby="tab-zoom">
+            <div class="panel-visual">
+              <div class="visual-circle circle-zoom">
+                <Icon name="video" />
+              </div>
+            </div>
+            <div class="panel-content">
+              <h3>Video Session</h3>
+              <p>Meet face-to-face from a private, comfortable place of your choosing. Online sessions offer flexibility and ease of scheduling from the privacy of your home or office.</p>
+              <a href="#contact" class="panel-action">Schedule a Zoom session <span>→</span></a>
+            </div>
+          </div>
+
+          <div class="tab-panel" id="panel-phone" role="tabpanel" aria-labelledby="tab-phone">
+            <div class="panel-visual">
+              <div class="visual-circle circle-phone">
+                <Icon name="phone" />
+              </div>
+            </div>
+            <div class="panel-content">
+              <h3>Phone Call</h3>
+              <p>A simple and accessible way to connect from wherever you feel at ease. Ideal for those who prefer to walk, sit in nature, or simply find speaking without a screen more reflective.</p>
+              <a href="#contact" class="panel-action">Schedule a phone session <span>→</span></a>
+            </div>
+          </div>
+
+          <div class="tab-panel" id="panel-inperson" role="tabpanel" aria-labelledby="tab-inperson">
+            <div class="panel-visual">
+              <div class="visual-circle circle-inperson">
+                <Icon name="place" />
+              </div>
+            </div>
+            <div class="panel-content">
+              <h3>In Person</h3>
+              <p>Meet in Oviedo or Winter Park, Florida. A quiet, dedicated space designed for deep listening, prayerful stillness, and personal connection.</p>
+              <a href="#contact" class="panel-action">Schedule in-person <span>→</span></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <script>
-    import '../scripts/animations';
+    document.addEventListener('DOMContentLoaded', () => {
+      const tabsContainer = document.querySelector('.tabs-container');
+      if (!tabsContainer) return;
+
+      const tabBtns = Array.from(tabsContainer.querySelectorAll('.tab-btn')) as HTMLButtonElement[];
+      const tabsIndicator = tabsContainer.querySelector('.tabs-indicator') as HTMLElement;
+      const tabsSlider = tabsContainer.querySelector('.tabs-slider') as HTMLElement;
+      let currentIndex = 0;
+      let autoplayInterval: any;
+
+      function updateTabs(btn: HTMLButtonElement) {
+        const index = tabBtns.indexOf(btn);
+        if (index === -1) return;
+        currentIndex = index;
+
+        tabBtns.forEach(b => {
+          b.classList.remove('active');
+          b.setAttribute('aria-selected', 'false');
+        });
+
+        btn.classList.add('active');
+        btn.setAttribute('aria-selected', 'true');
+
+        if (tabsIndicator) {
+          const isMobile = window.innerWidth <= 900;
+          if (isMobile) {
+            tabsIndicator.style.height = '';
+            tabsIndicator.style.top = '6px';
+            tabsIndicator.style.bottom = '6px';
+            tabsIndicator.style.width = `${btn.offsetWidth}px`;
+            tabsIndicator.style.transform = `translateX(${btn.offsetLeft}px)`;
+          } else {
+            tabsIndicator.style.width = '';
+            tabsIndicator.style.left = '8px';
+            tabsIndicator.style.right = '8px';
+            tabsIndicator.style.height = `${btn.offsetHeight}px`;
+            tabsIndicator.style.transform = `translateY(${btn.offsetTop}px)`;
+          }
+        }
+
+        const targetId = btn.getAttribute('aria-controls');
+        const targetPanel = document.getElementById(targetId || '');
+        if (targetPanel && tabsSlider) {
+          // Translate vertically
+          tabsSlider.style.transform = `translateY(-${index * 33.3333}%)`;
+        }
+      }
+
+      function nextTab() {
+        const nextIndex = (currentIndex + 1) % tabBtns.length;
+        updateTabs(tabBtns[nextIndex]);
+      }
+
+      // Start autoplay
+      autoplayInterval = setInterval(nextTab, 10000);
+
+      tabBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          // Clear autoplay on manual click
+          clearInterval(autoplayInterval);
+          updateTabs(btn);
+        });
+      });
+
+      // Init positioning
+      setTimeout(() => {
+        const activeBtn = tabsContainer.querySelector('.tab-btn.active') as HTMLButtonElement;
+        if (activeBtn) {
+          updateTabs(activeBtn);
+        }
+      }, 150);
+
+      window.addEventListener('resize', () => {
+        const currentActive = tabsContainer.querySelector('.tab-btn.active') as HTMLButtonElement;
+        if (currentActive) {
+          updateTabs(currentActive);
+        }
+      });
+    });
   </script>
-</body></html>
+
+  <section class="contact" id="contact"><div class="contact-symbol" aria-hidden="true">✦</div><p>Begin with a complimentary conversation</p><h2>Perhaps your next step<br/>is simply to <em>begin.</em></h2><div class="contact-actions"><a href={consultationHref}>Email Nathalie <span>↗</span></a><a href={phoneHref}>Call {phoneDisplay}</a></div><div class="contact-meta"><span>{email}</span><span>English & Spanish</span><span>Zoom · Phone · In person</span></div></section>
+  <a href="#top" id="back-to-top" class="back-to-top" aria-label="Back to top">
+    <svg viewBox="0 0 24 24"><path d="M4 12l1.41 1.41L11 7.83V20h2V7.83l5.58 5.59L20 12l-8-8z"/></svg>
+  </a>
+</main>
+<footer><div><strong>Nathalie Bose-Silver</strong><span>Catholic Spiritual Director</span></div><nav><a href="#practice">Practice</a><a href="#journey">Journey</a><a href="#nathalie">About</a><a href="#contact">Contact</a></nav><p>© {year} Nathalie Bose-Silver.<br/>Spiritual direction is not a substitute for counseling, psychotherapy, medical care, or emergency services.</p></footer>
+<script>
+  import '../scripts/animations';
+
+  const backToTop = document.getElementById('back-to-top');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 400) {
+      backToTop?.classList.add('visible');
+    } else {
+      backToTop?.classList.remove('visible');
+    }
+  });
+</script></body></html>
