@@ -114,3 +114,20 @@ body{background:radial-gradient(circle at 78% 18%,rgba(255,187,67,.38),transpare
 @media(max-width:1050px){.scroll-journey{right:7px;width:54px;opacity:.62}}
 @media(max-width:760px){.scroll-journey{display:none}}
 @media(prefers-reduced-motion:reduce){.scroll-journey{display:none}}
+
+/* Experience as a guided path */
+.experience-path{position:relative;min-height:510px;margin-top:30px}
+.experience-trail{position:absolute;inset:12px 2% 0;width:96%;height:440px;overflow:visible}
+.experience-trail-base,.experience-trail-draw{fill:none;stroke-linecap:round}
+.experience-trail-base{stroke:rgba(94,70,40,.18);stroke-width:18;stroke-dasharray:2 22}
+.experience-trail-draw{stroke:#d98936;stroke-width:7;filter:drop-shadow(0 5px 5px rgba(139,69,25,.16))}
+.experience-walker{position:absolute;z-index:3;left:1.5%;top:18px;width:42px;height:60px;opacity:0;will-change:transform}
+.experience-walker svg{width:100%;height:100%;fill:var(--forest);stroke:var(--forest);stroke-width:3;stroke-linecap:round;stroke-linejoin:round;filter:drop-shadow(0 4px 4px rgba(18,63,42,.2))}
+.station{position:absolute;z-index:2;width:min(245px,23%);min-height:215px;padding:25px 23px;background:rgba(255,248,233,.94);backdrop-filter:blur(7px);opacity:0}
+.station-1{left:1%;bottom:0}.station-2{left:26%;top:0}.station-3{left:52%;bottom:0}.station-4{right:0;top:5px}
+.station-number{position:absolute;right:18px;top:15px;font-size:.65rem;font-weight:700;letter-spacing:.13em;color:var(--terra)}
+.station .icon{margin-bottom:16px}.station:after{content:"";position:absolute;width:14px;height:14px;border:4px solid var(--soft);border-radius:50%;background:var(--terra);box-shadow:0 0 0 3px rgba(201,70,31,.18)}
+.station-1:after,.station-3:after{top:-12px;left:50%}.station-2:after,.station-4:after{bottom:-12px;left:50%}
+@media(max-width:900px){.experience-path{min-height:970px;margin-left:30px}.experience-trail{inset:0 auto 0 0;width:150px;height:930px}.experience-trail path{d:path("M70 15C20 125 125 212 69 320S123 515 62 625s42 200 15 286")}.experience-walker{left:0;top:0}.station{position:absolute;left:125px!important;right:auto!important;width:calc(100% - 145px);min-height:185px}.station-1{top:15px;bottom:auto}.station-2{top:250px}.station-3{top:485px;bottom:auto}.station-4{top:720px}.station:after{left:-13px!important;top:50%!important;bottom:auto!important}}
+@media(max-width:650px){.experience-path{margin-left:0;min-height:auto;padding-left:34px;display:grid;gap:18px}.experience-trail{left:-42px;width:120px;height:100%}.experience-walker{display:none}.station{position:relative;inset:auto!important;left:auto!important;width:100%;min-height:0;opacity:1}.station:after{left:-42px!important}.experience-trail-draw{stroke-width:6}}
+@media(prefers-reduced-motion:reduce){.station{opacity:1}.experience-walker{display:none}.experience-trail-draw{stroke-dasharray:none!important;stroke-dashoffset:0!important}}

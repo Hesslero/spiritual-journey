@@ -32,7 +32,7 @@ if (!reducedMotion) {
   document.querySelectorAll('.section-heading, .intro .narrow > :not(.intro-grid), .about-grid > div:last-child, .final-cta .container').forEach((element) => {
     groups.set(element, () => revealElement(element));
   });
-  document.querySelectorAll('.card-grid, .approach-list, .meeting-grid').forEach((element) => {
+  document.querySelectorAll('.approach-list, .meeting-grid').forEach((element) => {
     const children = element.querySelectorAll(':scope > article');
     groups.set(element, () => animate(children, {
       opacity: { from: 0 }, y: { from: 34 }, scale: { from: 0.97 },
@@ -51,6 +51,31 @@ if (!reducedMotion) {
     });
   }, { threshold: 0.18, rootMargin: '0px 0px -6% 0px' });
   groups.forEach((_, element) => observer.observe(element));
+
+  const experience = document.querySelector('.experience-path');
+  const experienceTrail = document.querySelector<SVGPathElement>('.experience-trail-draw');
+  const experienceWalker = document.querySelector<HTMLElement>('.experience-walker');
+  if (experience && experienceTrail && experienceWalker) {
+    const trailLength = experienceTrail.getTotalLength();
+    experienceTrail.style.strokeDasharray = `${trailLength}`;
+    experienceTrail.style.strokeDashoffset = `${trailLength}`;
+    const experienceObserver = new IntersectionObserver(([entry]) => {
+      if (!entry.isIntersecting) return;
+      const stations = experience.querySelectorAll('.station');
+      animate(experienceTrail, { strokeDashoffset: [trailLength, 0], duration: 3600, ease: 'inOut(2)' });
+      animate(experienceWalker, {
+        opacity: [0, 1],
+        x: [0, 245, 505, 750, 917],
+        y: [330, 68, 300, 55, 282],
+        rotate: [-8, 7, -5, 6, -4],
+        duration: 3600,
+        ease: 'inOut(2)',
+      });
+      animate(stations, { opacity: [0, 1], y: [28, 0], scale: [0.94, 1], duration: 650, delay: stagger(780, { start: 430 }), ease: 'out(3)' });
+      experienceObserver.disconnect();
+    }, { threshold: 0.24 });
+    experienceObserver.observe(experience);
+  }
 
   // Ambient movement inspired by the emblem.
   animate('.butterfly-one', { x: [-4, 9], y: [-5, 8], rotate: [-15, -5], duration: 4200, loop: true, alternate: true, ease: 'inOutSine' });
