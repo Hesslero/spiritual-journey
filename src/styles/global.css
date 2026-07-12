@@ -5,3 +5,11 @@
 @media(max-width:650px){body{padding-bottom:64px}.container{width:min(100% - 40px,1200px)}.site-header{height:72px}.brand strong{font-size:1.05rem}.hero{padding-top:54px}.hero-grid,.about-grid,.intro-grid{grid-template-columns:1fr}.hero-copy{text-align:center}.hero-copy .actions{justify-content:center}.hero h1{font-size:clamp(2.75rem,13.5vw,4rem)}.lead{font-size:1rem}.actions .button{width:100%}.journey-art{max-width:360px;margin-top:20px}.art-note{right:0;bottom:35px;font-size:.85rem}.section{padding:76px 0}.intro-grid{gap:12px}.intro aside{align-items:flex-start;flex-direction:column;text-align:left}.card-grid,.meeting-grid{grid-template-columns:1fr}.meeting-grid article:last-child{grid-column:auto}.approach-wrap{width:calc(100% - 24px);padding:42px 24px;border-radius:26px}.portrait-placeholder{min-height:390px;order:2}.about-grid{gap:50px}.footer-grid,.legal{flex-direction:column}.footer-grid nav{margin-top:35px}.mobile-actions{position:fixed;display:grid;grid-template-columns:1fr 1fr;left:0;right:0;bottom:0;z-index:40;height:64px;background:var(--soft);border-top:1px solid #dcd2bd;padding:8px 12px;gap:8px}.mobile-actions a{display:flex;align-items:center;justify-content:center;gap:7px;text-decoration:none;border-radius:999px;background:var(--forest);color:white;font-size:.86rem;font-weight:600}.mobile-actions a:last-child{background:var(--cream);color:var(--forest);border:1px solid var(--forest)}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition:none!important}}
 :focus-visible{outline:3px solid var(--orange);outline-offset:3px}
+
+/* Authorized brand artwork */
+.brand-mark{background:var(--cream);overflow:hidden;border:1px solid rgba(22,90,56,.18)}
+.brand-mark img{width:100%;height:100%;object-fit:cover}
+.journey-art{max-width:500px;padding:24px}
+.journey-art img{position:relative;display:block;width:100%;height:auto;aspect-ratio:1;border-radius:47% 47% 24% 24%;object-fit:contain;box-shadow:0 25px 50px rgba(52,65,48,.16);border:1px solid rgba(22,90,56,.12)}
+.logo-glow{position:absolute;inset:3% -4% -3% 6%;border-radius:48%;background:linear-gradient(145deg,rgba(239,122,34,.25),rgba(145,172,170,.33));filter:blur(2px);transform:rotate(5deg)}
+.footer-brand .brand-mark{border-color:#557362}
