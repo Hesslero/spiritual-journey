@@ -1,0 +1,6 @@
+# Copy this file to .dev.vars and replace the placeholder with your Resend key.
+RESEND_API_KEY="re_your_resend_api_key"
+
+# Optional overrides:
+# CONTACT_FROM_EMAIL="Sacred Guides Website <website@sacred-guides.com>"
+# CONTACT_TO_EMAIL="SacredGuideNBS@gmail.com"

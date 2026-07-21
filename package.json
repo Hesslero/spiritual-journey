@@ -3,11 +3,12 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "dev": "astro dev",
+    "dev": "npm run build && wrangler dev --port 4321",
+    "dev:astro": "astro dev",
     "build": "astro check && astro build",
     "preview": "astro preview",
     "check": "astro check",
-    "dev:contact": "wrangler dev",
+    "dev:contact": "wrangler dev --port 4321",
     "deploy:contact": "wrangler deploy"
   },
   "repository": {

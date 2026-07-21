@@ -313,7 +313,7 @@ Los días u horarios que generalmente me funcionan mejor son...</textarea>
           </div>
           <div class="form-honeypot" aria-hidden="true">
             <label for="contact-website">Sitio web</label>
-            <input id="contact-website" name="website" type="text" tabindex="-1" autocomplete="off" />
+            <input id="contact-website" name="_honey" type="text" tabindex="-1" autocomplete="off" />
           </div>
           <div class="form-submit form-field-wide">
             <p>Tu información se utilizará únicamente para responder a esta consulta.</p>
@@ -337,7 +337,10 @@ Los días u horarios que generalmente me funcionan mejor son...</textarea>
               const response = await fetch("/api/contact", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ ...Object.fromEntries(data), language: "es" }),
+                body: JSON.stringify({
+                  ...Object.fromEntries(data),
+                  language: "es",
+                }),
               });
               if (!response.ok) throw new Error("Request failed");
               form.reset();

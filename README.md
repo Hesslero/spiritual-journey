@@ -78,7 +78,11 @@ Start a local development server with hot-module reloading:
 npm run dev
 ```
 
-The site will be available at `http://localhost:4321/`.
+The site and its Cloudflare Worker API will be available at `http://localhost:4321/`.
+
+Before testing the contact form locally, copy `.dev.vars.example` to `.dev.vars` and replace the placeholder with your Resend API key. Wrangler loads this file locally; it is ignored by Git and must never be committed.
+
+Use `npm run dev:astro` only when you need Astro's frontend-only development server. The contact endpoint is not available in that mode.
 
 ### 3. Build for Production
 
@@ -112,20 +116,7 @@ Most of the content blocks, contact details, and links can be managed directly i
 
 -   **Email Address:** Update the `email` variable to change the recipient of all consultation requests.
 -   **Expectations & Approach:** Edit the `expectations`, `expectationsEs`, `approach`, or `approachEs` arrays to modify the grid contents without touching the HTML/Astro structures.
--   **Consultation Inquiries:** The contact form submits to the Cloudflare Worker at `worker/contact.js`. The other direct email links use `consultationHref` (English) and `consultationHrefEs` (Spanish).
-
-### Contact form email delivery
-
-The site is deployed by Cloudflare Workers Builds as the `spiritual-journey` Worker. Static files come from `dist`, while `worker/contact.js` handles `/api/contact` and forwards all other requests to the static asset binding. Before deploying:
-
-1. Add and verify `sacred-guides.com` in Resend.
-2. Create a sending-only Resend API key.
-3. Run `npx wrangler login` and authorize the Cloudflare account that owns `sacred-guides.com`.
-4. Run `npm run build` and deploy the latest commit through Cloudflare Workers Builds. For a manual deployment, run `npm run deploy:contact`.
-5. Run `npx wrangler secret put RESEND_API_KEY` and enter the API key when prompted.
-6. Optionally add `CONTACT_FROM_EMAIL` and `CONTACT_TO_EMAIL` in the Worker's dashboard settings. They default to `Sacred Guides Website <website@sacred-guides.com>` and `SacredGuideNBS@gmail.com`.
-
-Never place the Resend API key in client-side code or commit it to the repository.
+-   **Consultation Inquiries:** The form posts to `/api/contact`, handled by `worker/contact.js` in the `spiritual-journey` Cloudflare Worker. The Worker sends through Resend to `SacredGuideNBS@gmail.com`; `RESEND_API_KEY` must be stored as a Cloudflare secret.
 
 ---
 

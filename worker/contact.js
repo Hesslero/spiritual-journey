@@ -1,8 +1,5 @@
 const json = (body, status = 200) =>
-  Response.json(body, {
-    status,
-    headers: { "Cache-Control": "no-store" },
-  });
+  Response.json(body, { status, headers: { "Cache-Control": "no-store" } });
 
 const clean = (value, maxLength) =>
   typeof value === "string" ? value.trim().slice(0, maxLength) : "";
@@ -24,10 +21,10 @@ async function sendContactEmail(request, env) {
   const email = clean(payload.email, 254);
   const meeting = clean(payload.meeting, 50);
   const message = clean(payload.message, 3000);
-  const website = clean(payload.website, 200);
+  const honeypot = clean(payload._honey, 200);
   const language = payload.language === "es" ? "es" : "en";
 
-  if (website) return json({ ok: true });
+  if (honeypot) return json({ ok: true });
 
   const validEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
   const validName = /^[\p{L}\p{M}' -]{2,100}$/u.test(name);
@@ -41,10 +38,9 @@ async function sendContactEmail(request, env) {
     return json({ error: "Email service is not configured." }, 500);
   }
 
-  const subject =
-    language === "es"
-      ? `Nueva consulta de acompañamiento espiritual — ${name}`
-      : `New spiritual direction inquiry — ${name}`;
+  const subject = language === "es"
+    ? `Nueva consulta de acompañamiento espiritual — ${name}`
+    : `New spiritual direction inquiry — ${name}`;
   const text = [
     `Name / Nombre: ${name}`,
     `Email: ${email}`,
@@ -81,18 +77,11 @@ async function sendContactEmail(request, env) {
 export default {
   async fetch(request, env) {
     const url = new URL(request.url);
-
     if (url.pathname === "/api/contact") {
-      if (request.method !== "POST") {
-        return json({ error: "Method not allowed." }, 405);
-      }
+      if (request.method !== "POST") return json({ error: "Method not allowed." }, 405);
       return sendContactEmail(request, env);
     }
-
-    if (url.pathname.startsWith("/api/")) {
-      return json({ error: "Not found." }, 404);
-    }
-
+    if (url.pathname.startsWith("/api/")) return json({ error: "Not found." }, 404);
     return env.ASSETS.fetch(request);
   },
 };
