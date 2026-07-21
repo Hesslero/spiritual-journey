@@ -1,215 +1,535 @@
 ---
-import Header from '../components/Header.astro';
-import Icon from '../components/Icon.astro';
-import { approach, consultationHref, email, expectations } from '../data/site';
-import '../styles/global.css';
+import Header from "../components/Header.astro";
+import Icon from "../components/Icon.astro";
+import { approach, consultationHref, email, expectations } from "../data/site";
+import "../styles/global.css";
 const year = new Date().getFullYear();
-const schema = { '@context':'https://schema.org','@type':'Person',name:'Nathalie Bose-Silver',jobTitle:'Spiritual Director',email,areaServed:['Oviedo, Florida','Winter Park, Florida'],knowsLanguage:['English','Spanish'] };
-const base = import.meta.env.BASE_URL.replace(/\/$/, '');
-const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://sacred-guides.com');
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: "Nathalie Bose-Silver",
+  jobTitle: "Spiritual Director",
+  email,
+  areaServed: ["Oviedo, Florida", "Winter Park, Florida"],
+  knowsLanguage: ["English", "Spanish"],
+};
+const base = import.meta.env.BASE_URL.replace(/\/$/, "");
+const canonicalURL = new URL(
+  Astro.url.pathname,
+  Astro.site || "https://sacred-guides.com",
+);
 ---
-<!doctype html><html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width"/><title>Nathalie Bose-Silver | Certified Spiritual Director | Orlando, FL</title><meta name="description" content="Spiritual direction and companionship in Orlando, FL. A quiet, prayerful space to notice the movement of grace and discern your path."/><link rel="canonical" href={canonicalURL}/><link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet"/><meta property="og:title" content="Nathalie Bose-Silver | Spiritual Direction & Companion"/><meta property="og:description" content="A prayerful space to notice grace and discern your path."/><meta property="og:type" content="website"/><meta property="og:image" content="/images/spiritual-journey/spiritual-journey-logo.png"/><link rel="icon" type="image/png" href={`${base}/images/spiritual-journey/spiritual-journey-logo.png`}/><script is:inline type="application/ld+json" set:html={JSON.stringify(schema)}/><script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-YWHMGV3SF6"></script><script is:inline>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-YWHMGV3SF6');</script></head>
-<body id="top"><a class="skip" href="#main">Skip to content</a><Header/>
-<main id="main">
-  <section class="hero">
-    <div class="hero-index" aria-hidden="true"><i></i><small>Welcome</small></div>
-    <div class="hero-copy"><p class="kicker">Spiritual direction · English & Spanish</p><h1>A quieter way to hear what your <em>heart</em> already knows.</h1><p class="hero-lead">Leave the noise behind and enter a quiet place of prayer, where God’s gentle movement becomes visible and your own life rises before you with clarity, courage, and grace.</p><div class="hero-actions"><a class="primary-link" href={consultationHref}>Free 30-minute conversation <span>↗</span></a></div><p class="fee-note">Free initial consultation · Fee applies for ongoing sessions</p></div>
-    <div class="hero-visual"><div class="orbit orbit-one"></div><div class="orbit orbit-two"></div><img src={`${base}/images/spiritual-journey/spiritual-journey-logo.png`} width="1024" height="1024" alt="Spiritual Journey emblem featuring a winding path, butterflies, hands holding a flame, and a dove."/><p><span>✦</span>A sacred pause<br/>for your unfolding path</p></div>
-    <a class="scroll-cue" href="#practice"><span>Scroll to explore</span><i>↓</i></a>
-  </section>
 
-  <section class="manifesto" id="practice">
-    <div class="butterfly butterfly-1" aria-hidden="true">
-      <svg viewBox="0 0 24 24"><path d="M12 10c-.7-2-3-5.5-6-5.5C3 4.5 1 6.5 1 9.5c0 3 2.5 5.5 5.5 6.5-.5 1-1.5 2.5-3 3.5 0 0 2-.5 3.5-2 .5.5 1 1 1.5 1s1-.5 1.5-1c1.5 1.5 3.5 2 3.5 2-1.5-1-2.5-2.5-3-3.5 3-1 5.5-3.5 5.5-6.5 0-3-2-5-5-5-3 0-5.3 3.5-6 5.5z"/></svg>
-    </div>
-    <div class="butterfly butterfly-2" aria-hidden="true">
-      <svg viewBox="0 0 24 24"><path d="M12 10c-.7-2-3-5.5-6-5.5C3 4.5 1 6.5 1 9.5c0 3 2.5 5.5 5.5 6.5-.5 1-1.5 2.5-3 3.5 0 0 2-.5 3.5-2 .5.5 1 1 1.5 1s1-.5 1.5-1c1.5 1.5 3.5 2 3.5 2-1.5-1-2.5-2.5-3-3.5 3-1 5.5-3.5 5.5-6.5 0-3-2-5-5-5-3 0-5.3 3.5-6 5.5z"/></svg>
-    </div>
-    <div class="butterfly butterfly-3" aria-hidden="true">
-      <svg viewBox="0 0 24 24"><path d="M12 10c-.7-2-3-5.5-6-5.5C3 4.5 1 6.5 1 9.5c0 3 2.5 5.5 5.5 6.5-.5 1-1.5 2.5-3 3.5 0 0 2-.5 3.5-2 .5.5 1 1 1.5 1s1-.5 1.5-1c1.5 1.5 3.5 2 3.5 2-1.5-1-2.5-2.5-3-3.5 3-1 5.5-3.5 5.5-6.5 0-3-2-5-5-5-3 0-5.3 3.5-6 5.5z"/></svg>
-    </div>
-    <div class="butterfly butterfly-4" aria-hidden="true">
-      <svg viewBox="0 0 24 24"><path d="M12 10c-.7-2-3-5.5-6-5.5C3 4.5 1 6.5 1 9.5c0 3 2.5 5.5 5.5 6.5-.5 1-1.5 2.5-3 3.5 0 0 2-.5 3.5-2 .5.5 1 1 1.5 1s1-.5 1.5-1c1.5 1.5 3.5 2 3.5 2-1.5-1-2.5-2.5-3-3.5 3-1 5.5-3.5 5.5-6.5 0-3-2-5-5-5-3 0-5.3 3.5-6 5.5z"/></svg>
-    </div>
-    <div class="butterfly butterfly-5" aria-hidden="true">
-      <svg viewBox="0 0 24 24"><path d="M12 10c-.7-2-3-5.5-6-5.5C3 4.5 1 6.5 1 9.5c0 3 2.5 5.5 5.5 6.5-.5 1-1.5 2.5-3 3.5 0 0 2-.5 3.5-2 .5.5 1 1 1.5 1s1-.5 1.5-1c1.5 1.5 3.5 2 3.5 2-1.5-1-2.5-2.5-3-3.5 3-1 5.5-3.5 5.5-6.5 0-3-2-5-5-5-3 0-5.3 3.5-6 5.5z"/></svg>
-    </div>
-    <div class="butterfly butterfly-6" aria-hidden="true">
-      <svg viewBox="0 0 24 24"><path d="M12 10c-.7-2-3-5.5-6-5.5C3 4.5 1 6.5 1 9.5c0 3 2.5 5.5 5.5 6.5-.5 1-1.5 2.5-3 3.5 0 0 2-.5 3.5-2 .5.5 1 1 1.5 1s1-.5 1.5-1c1.5 1.5 3.5 2 3.5 2-1.5-1-2.5-2.5-3-3.5 3-1 5.5-3.5 5.5-6.5 0-3-2-5-5-5-3 0-5.3 3.5-6 5.5z"/></svg>
-    </div>
-    <div class="section-number">The practice</div><div class="manifesto-title"><p>Spiritual direction is</p><h2>Not advice.<br/>Not therapy.<br/><em>Sacred attention.</em></h2><figure class="practice-image"><img src={`${base}/images/spiritual-journey/spiritual-practice.png`} alt="An open Bible and a warm lit candle on a rustic wooden table, suggesting a prayerful and sacred space." loading="lazy"/><figcaption>A space to listen beyond the noise.</figcaption></figure></div><div class="manifesto-copy"><p>It is a conversation centered on your relationship with God—a place to slow down, reflect, pray, and become attentive to grace in ordinary life.</p><p>Nathalie does not diagnose or hand you answers. She accompanies you as you recognize the Divine within and around you, and discern the path that is already unfolding.</p><aside>“A spiritual director is one who helps another to recognize and follow the inspirations of grace.” <cite>— Thomas Merton</cite></aside></div></section>
+<!doctype html>
+<html lang="en">
+  <head
+    ><meta charset="UTF-8" /><meta
+      name="viewport"
+      content="width=device-width"
+    /><title>
+      Nathalie Bose-Silver | Certified Spiritual Director | Orlando, FL
+    </title><meta
+      name="description"
+      content="Spiritual direction and companionship in Orlando, FL. A quiet, prayerful space to notice the movement of grace and discern your path."
+    /><link rel="canonical" href={canonicalURL} /><link
+      rel="preconnect"
+      href="https://fonts.googleapis.com"
+    /><link
+      rel="preconnect"
+      href="https://fonts.gstatic.com"
+      crossorigin
+    /><link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    /><meta
+      property="og:title"
+      content="Nathalie Bose-Silver | Spiritual Direction & Companion"
+    /><meta
+      property="og:description"
+      content="A prayerful space to notice grace and discern your path."
+    /><meta property="og:type" content="website" /><meta
+      property="og:image"
+      content="/images/spiritual-journey/spiritual-journey-logo.png"
+    /><link
+      rel="icon"
+      type="image/png"
+      href={`${base}/images/spiritual-journey/spiritual-journey-logo.png`}
+    /><script
+      is:inline
+      type="application/ld+json"
+      set:html={JSON.stringify(schema)}
+    /><script
+      is:inline
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-YWHMGV3SF6"
+    ></script><script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-YWHMGV3SF6");
+    </script></head
+  >
+  <body id="top"
+    ><a class="skip" href="#main">Skip to content</a><Header />
+    <main id="main">
+      <section class="hero">
+        <div class="hero-index" aria-hidden="true">
+          <i></i><small>Welcome</small>
+        </div>
+        <div class="hero-copy">
+          <p class="kicker">Spiritual direction · English & Spanish</p><h1>
+            A quieter way to hear what your <em>heart</em> already knows.
+          </h1><p class="hero-lead">
+            Leave the noise behind and enter a quiet place of prayer, where
+            God’s gentle movement becomes visible and your own life rises before
+            you with clarity, courage, and grace.
+          </p><div class="hero-actions">
+            <a class="primary-link" href={consultationHref}
+              >Free 30-minute conversation <span>↗</span></a>
+          </div><p class="fee-note">
+            Free initial consultation · Fee applies for ongoing sessions
+          </p>
+        </div>
+        <div class="hero-visual">
+          <div class="orbit orbit-one"></div><div class="orbit orbit-two">
+          </div><img
+            src={`${base}/images/spiritual-journey/spiritual-journey-logo.png`}
+            width="1024"
+            height="1024"
+            alt="Spiritual Journey emblem featuring a winding path, butterflies, hands holding a flame, and a dove."
+          /><p><span>✦</span>A sacred pause<br />for your unfolding path</p>
+        </div>
+        <a class="scroll-cue" href="#practice"
+          ><span>Scroll to explore</span><i>↓</i></a
+        >
+      </section>
 
-  <section class="path-section" id="journey"><div class="path-heading"><div><span class="section-number">The journey</span><h2>Four movements.<br/>One unfolding path.</h2></div><p>Monthly, one-hour conversations shaped around your life—not a formula.</p></div><div class="path-layout"><div class="path-line" aria-hidden="true"><span class="path-progress"></span></div>{expectations.map(([icon,title,text],i)=><article class="path-step"><div class="step-icon"><Icon name={icon}/></div><div><h3>{title}</h3><p>{text}</p></div></article>)}</div></section>
+      <section class="manifesto" id="practice">
+        <div class="butterfly butterfly-1" aria-hidden="true">
+          <svg viewBox="0 0 24 24"
+            ><path
+              d="M12 10c-.7-2-3-5.5-6-5.5C3 4.5 1 6.5 1 9.5c0 3 2.5 5.5 5.5 6.5-.5 1-1.5 2.5-3 3.5 0 0 2-.5 3.5-2 .5.5 1 1 1.5 1s1-.5 1.5-1c1.5 1.5 3.5 2 3.5 2-1.5-1-2.5-2.5-3-3.5 3-1 5.5-3.5 5.5-6.5 0-3-2-5-5-5-3 0-5.3 3.5-6 5.5z"
+            ></path></svg
+          >
+        </div>
+        <div class="butterfly butterfly-2" aria-hidden="true">
+          <svg viewBox="0 0 24 24"
+            ><path
+              d="M12 10c-.7-2-3-5.5-6-5.5C3 4.5 1 6.5 1 9.5c0 3 2.5 5.5 5.5 6.5-.5 1-1.5 2.5-3 3.5 0 0 2-.5 3.5-2 .5.5 1 1 1.5 1s1-.5 1.5-1c1.5 1.5 3.5 2 3.5 2-1.5-1-2.5-2.5-3-3.5 3-1 5.5-3.5 5.5-6.5 0-3-2-5-5-5-3 0-5.3 3.5-6 5.5z"
+            ></path></svg
+          >
+        </div>
+        <div class="butterfly butterfly-3" aria-hidden="true">
+          <svg viewBox="0 0 24 24"
+            ><path
+              d="M12 10c-.7-2-3-5.5-6-5.5C3 4.5 1 6.5 1 9.5c0 3 2.5 5.5 5.5 6.5-.5 1-1.5 2.5-3 3.5 0 0 2-.5 3.5-2 .5.5 1 1 1.5 1s1-.5 1.5-1c1.5 1.5 3.5 2 3.5 2-1.5-1-2.5-2.5-3-3.5 3-1 5.5-3.5 5.5-6.5 0-3-2-5-5-5-3 0-5.3 3.5-6 5.5z"
+            ></path></svg
+          >
+        </div>
+        <div class="butterfly butterfly-4" aria-hidden="true">
+          <svg viewBox="0 0 24 24"
+            ><path
+              d="M12 10c-.7-2-3-5.5-6-5.5C3 4.5 1 6.5 1 9.5c0 3 2.5 5.5 5.5 6.5-.5 1-1.5 2.5-3 3.5 0 0 2-.5 3.5-2 .5.5 1 1 1.5 1s1-.5 1.5-1c1.5 1.5 3.5 2 3.5 2-1.5-1-2.5-2.5-3-3.5 3-1 5.5-3.5 5.5-6.5 0-3-2-5-5-5-3 0-5.3 3.5-6 5.5z"
+            ></path></svg
+          >
+        </div>
+        <div class="butterfly butterfly-5" aria-hidden="true">
+          <svg viewBox="0 0 24 24"
+            ><path
+              d="M12 10c-.7-2-3-5.5-6-5.5C3 4.5 1 6.5 1 9.5c0 3 2.5 5.5 5.5 6.5-.5 1-1.5 2.5-3 3.5 0 0 2-.5 3.5-2 .5.5 1 1 1.5 1s1-.5 1.5-1c1.5 1.5 3.5 2 3.5 2-1.5-1-2.5-2.5-3-3.5 3-1 5.5-3.5 5.5-6.5 0-3-2-5-5-5-3 0-5.3 3.5-6 5.5z"
+            ></path></svg
+          >
+        </div>
+        <div class="butterfly butterfly-6" aria-hidden="true">
+          <svg viewBox="0 0 24 24"
+            ><path
+              d="M12 10c-.7-2-3-5.5-6-5.5C3 4.5 1 6.5 1 9.5c0 3 2.5 5.5 5.5 6.5-.5 1-1.5 2.5-3 3.5 0 0 2-.5 3.5-2 .5.5 1 1 1.5 1s1-.5 1.5-1c1.5 1.5 3.5 2 3.5 2-1.5-1-2.5-2.5-3-3.5 3-1 5.5-3.5 5.5-6.5 0-3-2-5-5-5-3 0-5.3 3.5-6 5.5z"
+            ></path></svg
+          >
+        </div>
+        <div class="section-number">The practice</div><div
+          class="manifesto-title"
+        >
+          <p>Spiritual direction is</p><h2>
+            Not advice.<br />Not therapy.<br /><em>Sacred attention.</em>
+          </h2><figure class="practice-image">
+            <img
+              src={`${base}/images/spiritual-journey/spiritual-practice.png`}
+              alt="An open Bible and a warm lit candle on a rustic wooden table, suggesting a prayerful and sacred space."
+              loading="lazy"
+            /><figcaption>A space to listen beyond the noise.</figcaption>
+          </figure>
+        </div><div class="manifesto-copy">
+          <p>
+            It is a conversation centered on your relationship with God—a place
+            to slow down, reflect, pray, and become attentive to grace in
+            ordinary life.
+          </p><p>
+            Nathalie does not diagnose or hand you answers. She accompanies you
+            as you recognize the Divine within and around you, and discern the
+            path that is already unfolding.
+          </p><aside>
+            “A spiritual director is one who helps another to recognize and
+            follow the inspirations of grace.” <cite>— Thomas Merton</cite>
+          </aside>
+        </div>
+      </section>
 
-  <section class="approach"><div class="approach-sticky"><span class="section-number">The approach</span><h2>Held with care.<br/>Guided by grace.</h2><p>Every session is an invitation to pause and listen deeply to what is moving within your heart.</p></div><div class="approach-panels">{approach.map(([title,text],i)=><article><h3>{title}</h3><p>{text}</p></article>)}</div></section>
+      <section class="path-section" id="journey">
+        <div class="path-heading">
+          <div>
+            <span class="section-number">The journey</span><h2>
+              Four movements.<br />One unfolding path.
+            </h2>
+          </div><p>
+            Monthly, one-hour conversations shaped around your life—not a
+            formula.
+          </p>
+        </div><div class="path-layout">
+          <div class="path-line" aria-hidden="true">
+            <span class="path-progress"></span>
+          </div>{
+            expectations.map(([icon, title, text], i) => (
+              <article class="path-step">
+                <>
+                  <div class="step-icon">
+                    <Icon name={icon} />
+                  </div>
+                  <div>
+                    <>
+                      <h3>{title}</h3>
+                      <p>{text}</p>
+                    </>
+                  </div>
+                </>
+              </article>
+            ))
+          }
+        </div>
+      </section>
 
-  <section class="profile" id="nathalie"><figure class="profile-mark profile-photo"><img src={`${base}/images/spiritual-journey/profile-pic.png`} alt="Portrait of Nathalie Bose-Silver smiling in an orange jacket." loading="lazy"/><figcaption>Compassionate presence · Prayerful listening</figcaption></figure><div class="profile-copy"><span class="section-number">Your companion</span><h2>Meet Your Spiritual Companion,<br/>Nathalie Bose-Silver.</h2><p class="profile-intro">A certified professional spiritual director rooted in the Catholic faith and open to the unique sacred story of every person.</p><div class="profile-columns"><p>Nathalie completed the Sacred Presence Program at San Pedro Center, a ministry of Mayslake Ministries, and is a member of Spiritual Directors International.</p><p>Her experience includes adult and youth faith formation and founding a nonprofit rosary-making ministry supporting deeper devotion and prayer.</p></div><div class="credentials"><span>Certified Spiritual Director</span><span>English & Spanish</span><span>SDI Member</span></div></div></section>
+      <section class="approach">
+        <div class="approach-sticky">
+          <span class="section-number">The approach</span><h2>
+            Held with care.<br />Guided by grace.
+          </h2><p>
+            Every session is an invitation to pause and listen deeply to what is
+            moving within your heart.
+          </p>
+        </div><div class="approach-panels">
+          {
+            approach.map(([title, text], i) => (
+              <article>
+                <>
+                  <h3>{title}</h3>
+                  <p>{text}</p>
+                </>
+              </article>
+            ))
+          }
+        </div>
+      </section>
 
-  <section class="meeting" id="meeting-section">
-    <div class="meeting-intro">
-      <span class="section-number">Where we meet</span>
-      <h2>Wherever you can<br/>be fully present.</h2>
-    </div>
-    
-    <div class="tabs-container">
-      <div class="tabs-nav" role="tablist" aria-label="Meeting options">
-        <button class="tab-btn active" role="tab" aria-selected="true" aria-controls="panel-zoom" id="tab-zoom">
-          <Icon name="video" />
-          <span>Zoom</span>
-        </button>
-        <button class="tab-btn" role="tab" aria-selected="false" aria-controls="panel-phone" id="tab-phone">
-          <Icon name="phone" />
-          <span>Phone</span>
-        </button>
-        <button class="tab-btn" role="tab" aria-selected="false" aria-controls="panel-inperson" id="tab-inperson">
-          <Icon name="place" />
-          <span>In person</span>
-        </button>
-        <div class="tabs-indicator"></div>
-      </div>
+      <section class="profile" id="nathalie">
+        <figure class="profile-mark profile-photo">
+          <img
+            src={`${base}/images/spiritual-journey/profile-pic.png`}
+            alt="Portrait of Nathalie Bose-Silver smiling in an orange jacket."
+            loading="lazy"
+          /><figcaption>
+            Compassionate presence · Prayerful listening
+          </figcaption>
+        </figure><div class="profile-copy">
+          <span class="section-number">Your companion</span><h2>
+            Meet Your Spiritual Companion,<br />Nathalie Bose-Silver.
+          </h2><p class="profile-intro">
+            A certified professional spiritual director rooted in the Catholic
+            faith and open to the unique sacred story of every person.
+          </p><div class="profile-columns">
+            <p>
+              Nathalie completed the Sacred Presence Program at San Pedro
+              Center, a ministry of Mayslake Ministries, and is a member of
+              Spiritual Directors International.
+            </p><p>
+              Her experience includes adult and youth faith formation and
+              founding a nonprofit rosary-making ministry supporting deeper
+              devotion and prayer.
+            </p>
+          </div><div class="credentials">
+            <span>Certified Spiritual Director</span><span
+              >English & Spanish</span
+            ><span>SDI Member</span>
+          </div>
+        </div>
+      </section>
 
-      <div class="tabs-window">
-        <div class="tabs-slider">
-          <div class="tab-panel" id="panel-zoom" role="tabpanel" aria-labelledby="tab-zoom">
-            <div class="panel-visual">
-              <div class="visual-circle circle-zoom">
-                <Icon name="video" />
-              </div>
-            </div>
-            <div class="panel-content">
-              <h3>Video Session</h3>
-              <p>Meet face-to-face from a private, comfortable place of your choosing. Online sessions offer flexibility and ease of scheduling from the privacy of your home or office.</p>
-              <a href="#contact" class="panel-action">Schedule a Zoom session <span>→</span></a>
-            </div>
+      <section class="meeting" id="meeting-section">
+        <div class="meeting-intro">
+          <span class="section-number">Where we meet</span>
+          <h2>Wherever you can<br />be fully present.</h2>
+        </div>
+
+        <div class="tabs-container">
+          <div class="tabs-nav" role="tablist" aria-label="Meeting options">
+            <button
+              class="tab-btn active"
+              role="tab"
+              aria-selected="true"
+              aria-controls="panel-zoom"
+              id="tab-zoom"
+            >
+              <Icon name="video" />
+              <span>Zoom</span>
+            </button>
+            <button
+              class="tab-btn"
+              role="tab"
+              aria-selected="false"
+              aria-controls="panel-phone"
+              id="tab-phone"
+            >
+              <Icon name="phone" />
+              <span>Phone</span>
+            </button>
+            <button
+              class="tab-btn"
+              role="tab"
+              aria-selected="false"
+              aria-controls="panel-inperson"
+              id="tab-inperson"
+            >
+              <Icon name="place" />
+              <span>In person</span>
+            </button>
+            <div class="tabs-indicator"></div>
           </div>
 
-          <div class="tab-panel" id="panel-phone" role="tabpanel" aria-labelledby="tab-phone">
-            <div class="panel-visual">
-              <div class="visual-circle circle-phone">
-                <Icon name="phone" />
+          <div class="tabs-window">
+            <div class="tabs-slider">
+              <div
+                class="tab-panel"
+                id="panel-zoom"
+                role="tabpanel"
+                aria-labelledby="tab-zoom"
+              >
+                <div class="panel-visual">
+                  <div class="visual-circle circle-zoom">
+                    <Icon name="video" />
+                  </div>
+                </div>
+                <div class="panel-content">
+                  <h3>Video Session</h3>
+                  <p>
+                    Meet face-to-face from a private, comfortable place of your
+                    choosing. Online sessions offer flexibility and ease of
+                    scheduling from the privacy of your home or office.
+                  </p>
+                  <a href="#contact" class="panel-action"
+                    >Schedule a Zoom session <span>→</span></a
+                  >
+                </div>
               </div>
-            </div>
-            <div class="panel-content">
-              <h3>Phone Call</h3>
-              <p>A simple and accessible way to connect from wherever you feel at ease. Ideal for those who prefer to walk, sit in nature, or simply find speaking without a screen more reflective.</p>
-              <a href="#contact" class="panel-action">Schedule a phone session <span>→</span></a>
-            </div>
-          </div>
 
-          <div class="tab-panel" id="panel-inperson" role="tabpanel" aria-labelledby="tab-inperson">
-            <div class="panel-visual">
-              <div class="visual-circle circle-inperson">
-                <Icon name="place" />
+              <div
+                class="tab-panel"
+                id="panel-phone"
+                role="tabpanel"
+                aria-labelledby="tab-phone"
+              >
+                <div class="panel-visual">
+                  <div class="visual-circle circle-phone">
+                    <Icon name="phone" />
+                  </div>
+                </div>
+                <div class="panel-content">
+                  <h3>Phone Call</h3>
+                  <p>
+                    A simple and accessible way to connect from wherever you
+                    feel at ease. Ideal for those who prefer to walk, sit in
+                    nature, or simply find speaking without a screen more
+                    reflective.
+                  </p>
+                  <a href="#contact" class="panel-action"
+                    >Schedule a phone session <span>→</span></a
+                  >
+                </div>
               </div>
-            </div>
-            <div class="panel-content">
-              <h3>In Person</h3>
-              <p>Meet in person at Most Precious Blood Catholic Church in Oviedo, FL or San Pedro Center in Winter Park, FL. A quiet, dedicated space designed for deep listening, prayerful stillness, and personal connection.</p>
-              <a href="#contact" class="panel-action">Schedule in-person <span>→</span></a>
+
+              <div
+                class="tab-panel"
+                id="panel-inperson"
+                role="tabpanel"
+                aria-labelledby="tab-inperson"
+              >
+                <div class="panel-visual">
+                  <div class="visual-circle circle-inperson">
+                    <Icon name="place" />
+                  </div>
+                </div>
+                <div class="panel-content">
+                  <h3>In Person</h3>
+                  <p>
+                    Meet in person at Most Precious Blood Catholic Church in
+                    Oviedo, FL or San Pedro Center in Winter Park, FL. A quiet,
+                    dedicated space designed for deep listening, prayerful
+                    stillness, and personal connection.
+                  </p>
+                  <a href="#contact" class="panel-action"
+                    >Schedule in-person <span>→</span></a
+                  >
+                </div>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </div>
-  </section>
+      </section>
 
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const tabsContainer = document.querySelector('.tabs-container');
-      if (!tabsContainer) return;
+      <script>
+        document.addEventListener("DOMContentLoaded", () => {
+          const tabsContainer = document.querySelector(".tabs-container");
+          if (!tabsContainer) return;
 
-      const tabBtns = Array.from(tabsContainer.querySelectorAll('.tab-btn')) as HTMLButtonElement[];
-      const tabsIndicator = tabsContainer.querySelector('.tabs-indicator') as HTMLElement;
-      const tabsSlider = tabsContainer.querySelector('.tabs-slider') as HTMLElement;
-      let currentIndex = 0;
-      let autoplayInterval: any;
+          const tabBtns = Array.from(
+            tabsContainer.querySelectorAll(".tab-btn"),
+          ) as HTMLButtonElement[];
+          const tabsIndicator = tabsContainer.querySelector(
+            ".tabs-indicator",
+          ) as HTMLElement;
+          const tabsSlider = tabsContainer.querySelector(
+            ".tabs-slider",
+          ) as HTMLElement;
+          let currentIndex = 0;
+          let autoplayInterval: any;
 
-      function updateTabs(btn: HTMLButtonElement) {
-        const index = tabBtns.indexOf(btn);
-        if (index === -1) return;
-        currentIndex = index;
+          function updateTabs(btn: HTMLButtonElement) {
+            const index = tabBtns.indexOf(btn);
+            if (index === -1) return;
+            currentIndex = index;
 
-        tabBtns.forEach(b => {
-          b.classList.remove('active');
-          b.setAttribute('aria-selected', 'false');
-        });
+            tabBtns.forEach((b) => {
+              b.classList.remove("active");
+              b.setAttribute("aria-selected", "false");
+            });
 
-        btn.classList.add('active');
-        btn.setAttribute('aria-selected', 'true');
+            btn.classList.add("active");
+            btn.setAttribute("aria-selected", "true");
 
-        if (tabsIndicator) {
-          const isMobile = window.innerWidth <= 900;
-          if (isMobile) {
-            tabsIndicator.style.height = '';
-            tabsIndicator.style.top = '6px';
-            tabsIndicator.style.bottom = '6px';
-            tabsIndicator.style.width = `${btn.offsetWidth}px`;
-            tabsIndicator.style.transform = `translateX(${btn.offsetLeft}px)`;
-          } else {
-            tabsIndicator.style.width = '';
-            tabsIndicator.style.left = '8px';
-            tabsIndicator.style.right = '8px';
-            tabsIndicator.style.height = `${btn.offsetHeight}px`;
-            tabsIndicator.style.transform = `translateY(${btn.offsetTop}px)`;
+            if (tabsIndicator) {
+              const isMobile = window.innerWidth <= 900;
+              if (isMobile) {
+                tabsIndicator.style.height = "";
+                tabsIndicator.style.top = "6px";
+                tabsIndicator.style.bottom = "6px";
+                tabsIndicator.style.width = `${btn.offsetWidth}px`;
+                tabsIndicator.style.transform = `translateX(${btn.offsetLeft}px)`;
+              } else {
+                tabsIndicator.style.width = "";
+                tabsIndicator.style.left = "8px";
+                tabsIndicator.style.right = "8px";
+                tabsIndicator.style.height = `${btn.offsetHeight}px`;
+                tabsIndicator.style.transform = `translateY(${btn.offsetTop}px)`;
+              }
+            }
+
+            const targetId = btn.getAttribute("aria-controls");
+            const targetPanel = document.getElementById(targetId || "");
+            if (targetPanel && tabsSlider) {
+              // Translate vertically
+              tabsSlider.style.transform = `translateY(-${index * 33.3333}%)`;
+            }
           }
-        }
 
-        const targetId = btn.getAttribute('aria-controls');
-        const targetPanel = document.getElementById(targetId || '');
-        if (targetPanel && tabsSlider) {
-          // Translate vertically
-          tabsSlider.style.transform = `translateY(-${index * 33.3333}%)`;
-        }
-      }
+          function nextTab() {
+            const nextIndex = (currentIndex + 1) % tabBtns.length;
+            updateTabs(tabBtns[nextIndex]);
+          }
 
-      function nextTab() {
-        const nextIndex = (currentIndex + 1) % tabBtns.length;
-        updateTabs(tabBtns[nextIndex]);
-      }
+          // Start autoplay
+          autoplayInterval = setInterval(nextTab, 10000);
 
-      // Start autoplay
-      autoplayInterval = setInterval(nextTab, 10000);
+          tabBtns.forEach((btn) => {
+            btn.addEventListener("click", () => {
+              // Clear autoplay on manual click
+              clearInterval(autoplayInterval);
+              updateTabs(btn);
+            });
+          });
 
-      tabBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-          // Clear autoplay on manual click
-          clearInterval(autoplayInterval);
-          updateTabs(btn);
+          // Init positioning
+          setTimeout(() => {
+            const activeBtn = tabsContainer.querySelector(
+              ".tab-btn.active",
+            ) as HTMLButtonElement;
+            if (activeBtn) {
+              updateTabs(activeBtn);
+            }
+          }, 150);
+
+          window.addEventListener("resize", () => {
+            const currentActive = tabsContainer.querySelector(
+              ".tab-btn.active",
+            ) as HTMLButtonElement;
+            if (currentActive) {
+              updateTabs(currentActive);
+            }
+          });
         });
-      });
+      </script>
 
-      // Init positioning
-      setTimeout(() => {
-        const activeBtn = tabsContainer.querySelector('.tab-btn.active') as HTMLButtonElement;
-        if (activeBtn) {
-          updateTabs(activeBtn);
+      <section class="contact" id="contact">
+        <div class="contact-symbol" aria-hidden="true">✦</div><p>
+          Begin with a complimentary conversation
+        </p><h2>Begin Your Spiritual Journey Today.</h2><div
+          class="contact-actions"
+        >
+          <a href={consultationHref}>Email Nathalie <span>↗</span></a>
+        </div><p
+          class="fee-note"
+          style="color:rgba(255,244,217,0.65);margin-top:18px;font-size:0.72rem;letter-spacing:0.1em;text-transform:uppercase;"
+        >
+          Free initial consultation · Fee applies for ongoing sessions
+        </p><div class="contact-meta">
+          <span>{email}</span><span>English & Spanish</span><span
+            >Zoom · In person</span>
+        </div>
+      </section>
+      <a
+        href="#top"
+        id="back-to-top"
+        class="back-to-top"
+        aria-label="Back to top"
+      >
+        <svg viewBox="0 0 24 24"
+          ><path d="M4 12l1.41 1.41L11 7.83V20h2V7.83l5.58 5.59L20 12l-8-8z"
+          ></path></svg
+        >
+      </a>
+    </main>
+    <footer>
+      <div>
+        <strong>Nathalie Bose-Silver</strong><span>Spiritual Director</span>
+      </div><nav>
+        <a href="#practice">Practice</a><a href="#journey">Journey</a><a
+          href="#nathalie">About</a
+        ><a href="#contact">Contact</a>
+      </nav><p>
+        © {year} Nathalie Bose-Silver.<br />Spiritual direction is not a
+        substitute for counseling, psychotherapy, medical care, or emergency
+        services.
+      </p>
+    </footer>
+    <script>
+      import "../scripts/animations";
+
+      const backToTop = document.getElementById("back-to-top");
+      window.addEventListener("scroll", () => {
+        if (window.scrollY > 400) {
+          backToTop?.classList.add("visible");
+        } else {
+          backToTop?.classList.remove("visible");
         }
-      }, 150);
-
-      window.addEventListener('resize', () => {
-        const currentActive = tabsContainer.querySelector('.tab-btn.active') as HTMLButtonElement;
-        if (currentActive) {
-          updateTabs(currentActive);
-        }
       });
-    });
-  </script>
-
-  <section class="contact" id="contact"><div class="contact-symbol" aria-hidden="true">✦</div><p>Begin with a complimentary conversation</p><h2>Begin Your Spiritual Journey Today.</h2><div class="contact-actions"><a href={consultationHref}>Email Nathalie <span>↗</span></a></div><p class="fee-note" style="color:rgba(255,244,217,0.65);margin-top:18px;font-size:0.72rem;letter-spacing:0.1em;text-transform:uppercase;">Free initial consultation · Fee applies for ongoing sessions</p><div class="contact-meta"><span>{email}</span><span>English & Spanish</span><span>Zoom · In person</span></div></section>
-  <a href="#top" id="back-to-top" class="back-to-top" aria-label="Back to top">
-    <svg viewBox="0 0 24 24"><path d="M4 12l1.41 1.41L11 7.83V20h2V7.83l5.58 5.59L20 12l-8-8z"/></svg>
-  </a>
-</main>
-<footer><div><strong>Nathalie Bose-Silver</strong><span>Spiritual Director</span></div><nav><a href="#practice">Practice</a><a href="#journey">Journey</a><a href="#nathalie">About</a><a href="#contact">Contact</a></nav><p>© {year} Nathalie Bose-Silver.<br/>Spiritual direction is not a substitute for counseling, psychotherapy, medical care, or emergency services.</p></footer>
-<script>
-  import '../scripts/animations';
-
-  const backToTop = document.getElementById('back-to-top');
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > 400) {
-      backToTop?.classList.add('visible');
-    } else {
-      backToTop?.classList.remove('visible');
-    }
-  });
-</script></body></html>
+    </script></body>
+</html>
