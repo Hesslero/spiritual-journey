@@ -272,16 +272,21 @@ const canonicalURL = new URL(
         </div>
 
         <form class="meeting-form" data-contact-form data-lang="en">
-          <div class="form-field">
-            <label for="contact-name">Name</label>
-            <input id="contact-name" name="name" type="text" autocomplete="name" required />
+          <div class="form-heading form-field-wide">
+            <span>Contact Nathalie</span>
+            <h3>Send a message to begin your journey.</h3>
+            <p>Fields marked with an asterisk (*) are required.</p>
           </div>
           <div class="form-field">
-            <label for="contact-email">Email</label>
-            <input id="contact-email" name="email" type="email" autocomplete="email" required />
+            <label for="contact-name">Name <span aria-hidden="true">*</span></label>
+            <input id="contact-name" name="name" type="text" autocomplete="name" placeholder="e.g., Maria Gonzalez" pattern="[A-Za-zÀ-ÖØ-öø-ÿĀ-ž' -]{2,100}" maxlength="100" title="Please enter your name using letters only." required />
+          </div>
+          <div class="form-field">
+            <label for="contact-email">Email <span aria-hidden="true">*</span></label>
+            <input id="contact-email" name="email" type="email" autocomplete="email" placeholder="e.g., maria@example.com" maxlength="254" title="Please enter a valid email address, such as maria@example.com." required />
           </div>
           <div class="form-field form-field-wide">
-            <label for="contact-meeting">How would you prefer to meet?</label>
+            <label for="contact-meeting">How would you prefer to meet? <span aria-hidden="true">*</span></label>
             <select id="contact-meeting" name="meeting" required>
               <option value="" selected disabled>Select an option</option>
               <option value="Zoom">Zoom</option>
@@ -291,7 +296,11 @@ const canonicalURL = new URL(
           </div>
           <div class="form-field form-field-wide">
             <label for="contact-message">How can I accompany you?</label>
-            <textarea id="contact-message" name="message" rows="5" required></textarea>
+            <textarea id="contact-message" name="message" rows="7" maxlength="3000">Hello Nathalie,
+
+I’m interested in learning more about spiritual direction. I would appreciate support with...
+
+The days or times that usually work best for me are...</textarea>
           </div>
           <div class="form-honeypot" aria-hidden="true">
             <label for="contact-website">Website</label>

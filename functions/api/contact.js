@@ -31,8 +31,9 @@ export async function onRequestPost({ request, env }) {
   if (website) return json({ ok: true });
 
   const validEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  const validName = /^[\p{L}\p{M}' -]{2,100}$/u.test(name);
   const validMeetings = new Set(["Zoom", "Phone", "In person", "Teléfono", "Presencial"]);
-  if (!name || !validEmail || !validMeetings.has(meeting) || !message) {
+  if (!validName || !validEmail || !validMeetings.has(meeting)) {
     return json({ error: "Please complete every required field." }, 400);
   }
 
@@ -52,7 +53,7 @@ export async function onRequestPost({ request, env }) {
     `Language / Idioma: ${language}`,
     "",
     "Message / Mensaje:",
-    message,
+    message || "No additional message was provided.",
   ].join("\n");
 
   const response = await fetch("https://api.resend.com/emails", {

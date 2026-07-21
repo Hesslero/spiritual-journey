@@ -281,16 +281,21 @@ const canonicalURL = new URL(
         </div>
 
         <form class="meeting-form" data-contact-form data-lang="es">
-          <div class="form-field">
-            <label for="contact-name">Nombre</label>
-            <input id="contact-name" name="name" type="text" autocomplete="name" required />
+          <div class="form-heading form-field-wide">
+            <span>Contacta a Nathalie</span>
+            <h3>Envía un mensaje para comenzar tu camino.</h3>
+            <p>Los campos marcados con un asterisco (*) son obligatorios.</p>
           </div>
           <div class="form-field">
-            <label for="contact-email">Correo electrónico</label>
-            <input id="contact-email" name="email" type="email" autocomplete="email" required />
+            <label for="contact-name">Nombre <span aria-hidden="true">*</span></label>
+            <input id="contact-name" name="name" type="text" autocomplete="name" placeholder="Ej.: María González" pattern="[A-Za-zÀ-ÖØ-öø-ÿĀ-ž' -]{2,100}" maxlength="100" title="Escribe tu nombre utilizando únicamente letras." required />
+          </div>
+          <div class="form-field">
+            <label for="contact-email">Correo electrónico <span aria-hidden="true">*</span></label>
+            <input id="contact-email" name="email" type="email" autocomplete="email" placeholder="Ej.: maria@ejemplo.com" maxlength="254" title="Escribe un correo válido, por ejemplo, maria@ejemplo.com." required />
           </div>
           <div class="form-field form-field-wide">
-            <label for="contact-meeting">¿Cómo prefieres reunirte?</label>
+            <label for="contact-meeting">¿Cómo prefieres reunirte? <span aria-hidden="true">*</span></label>
             <select id="contact-meeting" name="meeting" required>
               <option value="" selected disabled>Selecciona una opción</option>
               <option value="Zoom">Zoom</option>
@@ -300,7 +305,11 @@ const canonicalURL = new URL(
           </div>
           <div class="form-field form-field-wide">
             <label for="contact-message">¿Cómo puedo acompañarte?</label>
-            <textarea id="contact-message" name="message" rows="5" required></textarea>
+            <textarea id="contact-message" name="message" rows="7" maxlength="3000">Hola Nathalie:
+
+Me interesa conocer más sobre el acompañamiento espiritual. Me gustaría recibir apoyo con...
+
+Los días u horarios que generalmente me funcionan mejor son...</textarea>
           </div>
           <div class="form-honeypot" aria-hidden="true">
             <label for="contact-website">Sitio web</label>
