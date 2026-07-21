@@ -6,7 +6,9 @@
     "dev": "astro dev",
     "build": "astro check && astro build",
     "preview": "astro preview",
-    "check": "astro check"
+    "check": "astro check",
+    "dev:contact": "wrangler dev",
+    "deploy:contact": "wrangler deploy"
   },
   "repository": {
     "type": "git",
@@ -28,6 +30,7 @@
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.9",
-    "typescript": "^6.0.3"
+    "typescript": "^6.0.3",
+    "wrangler": "^4.112.0"
   }
 }

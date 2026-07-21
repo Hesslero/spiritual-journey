@@ -1,0 +1,12 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "sacred-guides-contact",
+  "main": "worker/contact.js",
+  "compatibility_date": "2026-07-20",
+  "routes": [
+    {
+      "pattern": "sacred-guides.com/api/*",
+      "zone_name": "sacred-guides.com"
+    }
+  ]
+}

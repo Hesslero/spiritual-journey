@@ -89,10 +89,6 @@ export default {
       return sendContactEmail(request, env);
     }
 
-    if (url.pathname.startsWith("/api/")) {
-      return json({ error: "Not found." }, 404);
-    }
-
-    return env.ASSETS.fetch(request);
+    return json({ error: "Not found." }, 404);
   },
 };

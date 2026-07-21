@@ -112,18 +112,18 @@ Most of the content blocks, contact details, and links can be managed directly i
 
 -   **Email Address:** Update the `email` variable to change the recipient of all consultation requests.
 -   **Expectations & Approach:** Edit the `expectations`, `expectationsEs`, `approach`, or `approachEs` arrays to modify the grid contents without touching the HTML/Astro structures.
--   **Consultation Inquiries:** The contact form submits to the Cloudflare Pages Worker at `public/_worker.js`. The other direct email links use `consultationHref` (English) and `consultationHrefEs` (Spanish).
+-   **Consultation Inquiries:** The contact form submits to the Cloudflare Worker at `worker/contact.js`. The other direct email links use `consultationHref` (English) and `consultationHrefEs` (Spanish).
 
 ### Contact form email delivery
 
-The form uses Resend from a server-side Cloudflare Pages Worker. Astro copies `public/_worker.js` into `dist`, which supports Git, Wrangler, and dashboard drag-and-drop deployments. Before deploying:
+The static site is hosted by GitHub Pages behind Cloudflare. The form uses Resend from a separate Cloudflare Worker routed only to `sacred-guides.com/api/*`. Before deploying:
 
 1. Add and verify `sacred-guides.com` in Resend.
 2. Create a sending-only Resend API key.
-3. In Cloudflare, open **Workers & Pages → your project → Settings → Variables and Secrets**.
-4. Add `RESEND_API_KEY` as an encrypted secret.
-5. Optionally add `CONTACT_FROM_EMAIL` (defaults to `Sacred Guides Website <website@sacred-guides.com>`) and `CONTACT_TO_EMAIL` (defaults to `SacredGuideNBS@gmail.com`).
-6. Redeploy the Pages project so the Function receives the new configuration.
+3. Run `npx wrangler login` and authorize the Cloudflare account that owns `sacred-guides.com`.
+4. Run `npm run deploy:contact` to create the Worker and its `/api/*` route.
+5. Run `npx wrangler secret put RESEND_API_KEY` and enter the API key when prompted.
+6. Optionally add `CONTACT_FROM_EMAIL` and `CONTACT_TO_EMAIL` in the Worker's dashboard settings. They default to `Sacred Guides Website <website@sacred-guides.com>` and `SacredGuideNBS@gmail.com`.
 
 Never place the Resend API key in client-side code or commit it to the repository.
 
