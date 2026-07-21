@@ -1,12 +1,16 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
-  "name": "sacred-guides-contact",
+  "name": "spiritual-journey",
   "main": "worker/contact.js",
   "compatibility_date": "2026-07-20",
+  "assets": {
+    "directory": "./dist",
+    "binding": "ASSETS"
+  },
   "routes": [
     {
-      "pattern": "sacred-guides.com/api/*",
-      "zone_name": "sacred-guides.com"
+      "pattern": "sacred-guides.com",
+      "custom_domain": true
     }
   ]
 }

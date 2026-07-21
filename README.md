@@ -116,12 +116,12 @@ Most of the content blocks, contact details, and links can be managed directly i
 
 ### Contact form email delivery
 
-The static site is hosted by GitHub Pages behind Cloudflare. The form uses Resend from a separate Cloudflare Worker routed only to `sacred-guides.com/api/*`. Before deploying:
+The site is deployed by Cloudflare Workers Builds as the `spiritual-journey` Worker. Static files come from `dist`, while `worker/contact.js` handles `/api/contact` and forwards all other requests to the static asset binding. Before deploying:
 
 1. Add and verify `sacred-guides.com` in Resend.
 2. Create a sending-only Resend API key.
 3. Run `npx wrangler login` and authorize the Cloudflare account that owns `sacred-guides.com`.
-4. Run `npm run deploy:contact` to create the Worker and its `/api/*` route.
+4. Run `npm run build` and deploy the latest commit through Cloudflare Workers Builds. For a manual deployment, run `npm run deploy:contact`.
 5. Run `npx wrangler secret put RESEND_API_KEY` and enter the API key when prompted.
 6. Optionally add `CONTACT_FROM_EMAIL` and `CONTACT_TO_EMAIL` in the Worker's dashboard settings. They default to `Sacred Guides Website <website@sacred-guides.com>` and `SacredGuideNBS@gmail.com`.
 
