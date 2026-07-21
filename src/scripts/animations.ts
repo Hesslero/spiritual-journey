@@ -6,7 +6,7 @@ if(!reduced){
   animate('.orbit-one',{rotate:[0,360],duration:26000,loop:true,ease:'linear'});animate('.orbit-two',{rotate:[360,0],duration:33000,loop:true,ease:'linear'});
   const reveal=(el:Element)=>animate(el,{opacity:[0,1],y:[42,0],duration:900,ease:'out(3)'});
   const observer=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){if(e.target.matches('.approach-panels'))animate('.approach-panels article',{opacity:[0,1],y:[50,0],duration:850,delay:stagger(130),ease:'out(3)'});else if(e.target.matches('.meeting-options'))animate('.meeting-options article',{opacity:[0,1],y:[36,0],duration:800,delay:stagger(120),ease:'out(3)'});else reveal(e.target);observer.unobserve(e.target)} }),{threshold:.16});
-  document.querySelectorAll('.manifesto-title,.manifesto-copy,.path-heading,.approach-panels,.profile-mark,.profile-copy,.meeting-intro,.meeting-options,.contact>*').forEach(el=>observer.observe(el));
+  document.querySelectorAll('.manifesto-title,.manifesto-copy,.path-heading,.approach-panels,.profile-mark,.profile-copy,.meeting-intro,.meeting-form,.contact>*').forEach(el=>observer.observe(el));
 
   const stepsList=Array.from(document.querySelectorAll('.path-step'));
   const stepObserver=new IntersectionObserver(entries=>{

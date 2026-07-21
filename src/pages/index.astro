@@ -271,208 +271,63 @@ const canonicalURL = new URL(
           <h2>Wherever you can<br />be fully present.</h2>
         </div>
 
-        <div class="tabs-container">
-          <div class="tabs-nav" role="tablist" aria-label="Meeting options">
-            <button
-              class="tab-btn active"
-              role="tab"
-              aria-selected="true"
-              aria-controls="panel-zoom"
-              id="tab-zoom"
-            >
-              <Icon name="video" />
-              <span>Zoom</span>
-            </button>
-            <button
-              class="tab-btn"
-              role="tab"
-              aria-selected="false"
-              aria-controls="panel-phone"
-              id="tab-phone"
-            >
-              <Icon name="phone" />
-              <span>Phone</span>
-            </button>
-            <button
-              class="tab-btn"
-              role="tab"
-              aria-selected="false"
-              aria-controls="panel-inperson"
-              id="tab-inperson"
-            >
-              <Icon name="place" />
-              <span>In person</span>
-            </button>
-            <div class="tabs-indicator"></div>
+        <form class="meeting-form" data-contact-form data-lang="en">
+          <div class="form-field">
+            <label for="contact-name">Name</label>
+            <input id="contact-name" name="name" type="text" autocomplete="name" required />
           </div>
-
-          <div class="tabs-window">
-            <div class="tabs-slider">
-              <div
-                class="tab-panel"
-                id="panel-zoom"
-                role="tabpanel"
-                aria-labelledby="tab-zoom"
-              >
-                <div class="panel-visual">
-                  <div class="visual-circle circle-zoom">
-                    <Icon name="video" />
-                  </div>
-                </div>
-                <div class="panel-content">
-                  <h3>Video Session</h3>
-                  <p>
-                    Meet face-to-face from a private, comfortable place of your
-                    choosing. Online sessions offer flexibility and ease of
-                    scheduling from the privacy of your home or office.
-                  </p>
-                  <a href="#contact" class="panel-action"
-                    >Schedule a Zoom session <span>→</span></a
-                  >
-                </div>
-              </div>
-
-              <div
-                class="tab-panel"
-                id="panel-phone"
-                role="tabpanel"
-                aria-labelledby="tab-phone"
-              >
-                <div class="panel-visual">
-                  <div class="visual-circle circle-phone">
-                    <Icon name="phone" />
-                  </div>
-                </div>
-                <div class="panel-content">
-                  <h3>Phone Call</h3>
-                  <p>
-                    A simple and accessible way to connect from wherever you
-                    feel at ease. Ideal for those who prefer to walk, sit in
-                    nature, or simply find speaking without a screen more
-                    reflective.
-                  </p>
-                  <a href="#contact" class="panel-action"
-                    >Schedule a phone session <span>→</span></a
-                  >
-                </div>
-              </div>
-
-              <div
-                class="tab-panel"
-                id="panel-inperson"
-                role="tabpanel"
-                aria-labelledby="tab-inperson"
-              >
-                <div class="panel-visual">
-                  <div class="visual-circle circle-inperson">
-                    <Icon name="place" />
-                  </div>
-                </div>
-                <div class="panel-content">
-                  <h3>In Person</h3>
-                  <p>
-                    Meet in person at Most Precious Blood Catholic Church in
-                    Oviedo, FL or San Pedro Center in Winter Park, FL. A quiet,
-                    dedicated space designed for deep listening, prayerful
-                    stillness, and personal connection.
-                  </p>
-                  <a href="#contact" class="panel-action"
-                    >Schedule in-person <span>→</span></a
-                  >
-                </div>
-              </div>
-            </div>
+          <div class="form-field">
+            <label for="contact-email">Email</label>
+            <input id="contact-email" name="email" type="email" autocomplete="email" required />
           </div>
-        </div>
+          <div class="form-field form-field-wide">
+            <label for="contact-meeting">How would you prefer to meet?</label>
+            <select id="contact-meeting" name="meeting" required>
+              <option value="" selected disabled>Select an option</option>
+              <option value="Zoom">Zoom</option>
+              <option value="Phone">Phone</option>
+              <option value="In person">In person</option>
+            </select>
+          </div>
+          <div class="form-field form-field-wide">
+            <label for="contact-message">How can I accompany you?</label>
+            <textarea id="contact-message" name="message" rows="5" required></textarea>
+          </div>
+          <div class="form-honeypot" aria-hidden="true">
+            <label for="contact-website">Website</label>
+            <input id="contact-website" name="website" type="text" tabindex="-1" autocomplete="off" />
+          </div>
+          <div class="form-submit form-field-wide">
+            <p>Your information is used only to respond to this inquiry.</p>
+            <button type="submit">Begin the conversation <span>→</span></button>
+          </div>
+          <p class="form-status form-field-wide" role="status" aria-live="polite"></p>
+        </form>
       </section>
 
       <script>
         document.addEventListener("DOMContentLoaded", () => {
-          const tabsContainer = document.querySelector(".tabs-container");
-          if (!tabsContainer) return;
-
-          const tabBtns = Array.from(
-            tabsContainer.querySelectorAll(".tab-btn"),
-          ) as HTMLButtonElement[];
-          const tabsIndicator = tabsContainer.querySelector(
-            ".tabs-indicator",
-          ) as HTMLElement;
-          const tabsSlider = tabsContainer.querySelector(
-            ".tabs-slider",
-          ) as HTMLElement;
-          let currentIndex = 0;
-          let autoplayInterval: any;
-
-          function updateTabs(btn: HTMLButtonElement) {
-            const index = tabBtns.indexOf(btn);
-            if (index === -1) return;
-            currentIndex = index;
-
-            tabBtns.forEach((b) => {
-              b.classList.remove("active");
-              b.setAttribute("aria-selected", "false");
-            });
-
-            btn.classList.add("active");
-            btn.setAttribute("aria-selected", "true");
-
-            if (tabsIndicator) {
-              const isMobile = window.innerWidth <= 900;
-              if (isMobile) {
-                tabsIndicator.style.height = "";
-                tabsIndicator.style.top = "6px";
-                tabsIndicator.style.bottom = "6px";
-                tabsIndicator.style.width = `${btn.offsetWidth}px`;
-                tabsIndicator.style.transform = `translateX(${btn.offsetLeft}px)`;
-              } else {
-                tabsIndicator.style.width = "";
-                tabsIndicator.style.left = "8px";
-                tabsIndicator.style.right = "8px";
-                tabsIndicator.style.height = `${btn.offsetHeight}px`;
-                tabsIndicator.style.transform = `translateY(${btn.offsetTop}px)`;
-              }
-            }
-
-            const targetId = btn.getAttribute("aria-controls");
-            const targetPanel = document.getElementById(targetId || "");
-            if (targetPanel && tabsSlider) {
-              // Translate vertically
-              tabsSlider.style.transform = `translateY(-${index * 33.3333}%)`;
-            }
-          }
-
-          function nextTab() {
-            const nextIndex = (currentIndex + 1) % tabBtns.length;
-            updateTabs(tabBtns[nextIndex]);
-          }
-
-          // Start autoplay
-          autoplayInterval = setInterval(nextTab, 10000);
-
-          tabBtns.forEach((btn) => {
-            btn.addEventListener("click", () => {
-              // Clear autoplay on manual click
-              clearInterval(autoplayInterval);
-              updateTabs(btn);
-            });
-          });
-
-          // Init positioning
-          setTimeout(() => {
-            const activeBtn = tabsContainer.querySelector(
-              ".tab-btn.active",
-            ) as HTMLButtonElement;
-            if (activeBtn) {
-              updateTabs(activeBtn);
-            }
-          }, 150);
-
-          window.addEventListener("resize", () => {
-            const currentActive = tabsContainer.querySelector(
-              ".tab-btn.active",
-            ) as HTMLButtonElement;
-            if (currentActive) {
-              updateTabs(currentActive);
+          const form = document.querySelector<HTMLFormElement>("[data-contact-form]");
+          form?.addEventListener("submit", async (event) => {
+            event.preventDefault();
+            const button = form.querySelector<HTMLButtonElement>("button[type='submit']");
+            const status = form.querySelector<HTMLElement>(".form-status");
+            const data = new FormData(form);
+            if (button) { button.disabled = true; button.textContent = "Sending…"; }
+            if (status) { status.textContent = ""; status.className = "form-status form-field-wide"; }
+            try {
+              const response = await fetch("/api/contact", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ ...Object.fromEntries(data), language: "en" }),
+              });
+              if (!response.ok) throw new Error("Request failed");
+              form.reset();
+              if (status) { status.textContent = "Thank you. Your message has been sent."; status.classList.add("success"); }
+            } catch {
+              if (status) { status.textContent = "We couldn't send your message. Please try again shortly."; status.classList.add("error"); }
+            } finally {
+              if (button) { button.disabled = false; button.innerHTML = "Begin the conversation <span>→</span>"; }
             }
           });
         });

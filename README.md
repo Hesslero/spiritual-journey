@@ -112,7 +112,20 @@ Most of the content blocks, contact details, and links can be managed directly i
 
 -   **Email Address:** Update the `email` variable to change the recipient of all consultation requests.
 -   **Expectations & Approach:** Edit the `expectations`, `expectationsEs`, `approach`, or `approachEs` arrays to modify the grid contents without touching the HTML/Astro structures.
--   **Consultation Inquiries:** Pre-configured Subject lines for the `mailto:` CTA links are available as `consultationHref` (English) and `consultationHrefEs` (Spanish).
+-   **Consultation Inquiries:** The contact form submits to the Cloudflare Pages Function at `functions/api/contact.js`. The other direct email links use `consultationHref` (English) and `consultationHrefEs` (Spanish).
+
+### Contact form email delivery
+
+The form uses Resend from a server-side Cloudflare Pages Function. Before deploying:
+
+1. Add and verify `sacred-guides.com` in Resend.
+2. Create a sending-only Resend API key.
+3. In Cloudflare, open **Workers & Pages → your project → Settings → Variables and Secrets**.
+4. Add `RESEND_API_KEY` as an encrypted secret.
+5. Optionally add `CONTACT_FROM_EMAIL` (defaults to `Sacred Guides Website <website@sacred-guides.com>`) and `CONTACT_TO_EMAIL` (defaults to `SacredGuideNBS@gmail.com`).
+6. Redeploy the Pages project so the Function receives the new configuration.
+
+Never place the Resend API key in client-side code or commit it to the repository.
 
 ---
 

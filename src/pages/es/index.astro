@@ -280,209 +280,63 @@ const canonicalURL = new URL(
           <h2>Dondequiera que puedas<br />estar plenamente presente.</h2>
         </div>
 
-        <div class="tabs-container">
-          <div class="tabs-nav" role="tablist" aria-label="Opciones de reunión">
-            <button
-              class="tab-btn active"
-              role="tab"
-              aria-selected="true"
-              aria-controls="panel-zoom"
-              id="tab-zoom"
-            >
-              <Icon name="video" />
-              <span>Zoom</span>
-            </button>
-            <button
-              class="tab-btn"
-              role="tab"
-              aria-selected="false"
-              aria-controls="panel-phone"
-              id="tab-phone"
-            >
-              <Icon name="phone" />
-              <span>Teléfono</span>
-            </button>
-            <button
-              class="tab-btn"
-              role="tab"
-              aria-selected="false"
-              aria-controls="panel-inperson"
-              id="tab-inperson"
-            >
-              <Icon name="place" />
-              <span>Presencial</span>
-            </button>
-            <div class="tabs-indicator"></div>
+        <form class="meeting-form" data-contact-form data-lang="es">
+          <div class="form-field">
+            <label for="contact-name">Nombre</label>
+            <input id="contact-name" name="name" type="text" autocomplete="name" required />
           </div>
-
-          <div class="tabs-window">
-            <div class="tabs-slider">
-              <div
-                class="tab-panel"
-                id="panel-zoom"
-                role="tabpanel"
-                aria-labelledby="tab-zoom"
-              >
-                <div class="panel-visual">
-                  <div class="visual-circle circle-zoom">
-                    <Icon name="video" />
-                  </div>
-                </div>
-                <div class="panel-content">
-                  <h3>Sesión por Video</h3>
-                  <p>
-                    Reúnete cara a cara desde un lugar privado y cómodo de tu
-                    elección. Las sesiones en línea ofrecen flexibilidad y
-                    facilidad de horario desde la privacidad de tu hogar u
-                    oficina.
-                  </p>
-                  <a href="#contact" class="panel-action"
-                    >Agendar sesión en Zoom <span>→</span></a
-                  >
-                </div>
-              </div>
-
-              <div
-                class="tab-panel"
-                id="panel-phone"
-                role="tabpanel"
-                aria-labelledby="tab-phone"
-              >
-                <div class="panel-visual">
-                  <div class="visual-circle circle-phone">
-                    <Icon name="phone" />
-                  </div>
-                </div>
-                <div class="panel-content">
-                  <h3>Llamada Telefónica</h3>
-                  <p>
-                    Una forma sencilla y accesible de conectar desde donde te
-                    sientas cómodo. Ideal para quienes prefieren caminar,
-                    sentarse en la naturaleza o simplemente encuentran más
-                    reflexivo hablar sin pantalla.
-                  </p>
-                  <a href="#contact" class="panel-action"
-                    >Agendar sesión telefónica <span>→</span></a
-                  >
-                </div>
-              </div>
-
-              <div
-                class="tab-panel"
-                id="panel-inperson"
-                role="tabpanel"
-                aria-labelledby="tab-inperson"
-              >
-                <div class="panel-visual">
-                  <div class="visual-circle circle-inperson">
-                    <Icon name="place" />
-                  </div>
-                </div>
-                <div class="panel-content">
-                  <h3>En Persona</h3>
-                  <p>
-                    Reúnete en persona en Most Precious Blood Catholic Church en
-                    Oviedo, FL o en San Pedro Center en Winter Park, FL. Un
-                    espacio tranquilo y dedicado, diseñado para la escucha
-                    profunda, la quietud en oración y la conexión personal.
-                  </p>
-                  <a href="#contact" class="panel-action"
-                    >Agendar sesión presencial <span>→</span></a
-                  >
-                </div>
-              </div>
-            </div>
+          <div class="form-field">
+            <label for="contact-email">Correo electrónico</label>
+            <input id="contact-email" name="email" type="email" autocomplete="email" required />
           </div>
-        </div>
+          <div class="form-field form-field-wide">
+            <label for="contact-meeting">¿Cómo prefieres reunirte?</label>
+            <select id="contact-meeting" name="meeting" required>
+              <option value="" selected disabled>Selecciona una opción</option>
+              <option value="Zoom">Zoom</option>
+              <option value="Teléfono">Teléfono</option>
+              <option value="Presencial">Presencial</option>
+            </select>
+          </div>
+          <div class="form-field form-field-wide">
+            <label for="contact-message">¿Cómo puedo acompañarte?</label>
+            <textarea id="contact-message" name="message" rows="5" required></textarea>
+          </div>
+          <div class="form-honeypot" aria-hidden="true">
+            <label for="contact-website">Sitio web</label>
+            <input id="contact-website" name="website" type="text" tabindex="-1" autocomplete="off" />
+          </div>
+          <div class="form-submit form-field-wide">
+            <p>Tu información se utilizará únicamente para responder a esta consulta.</p>
+            <button type="submit">Iniciar la conversación <span>→</span></button>
+          </div>
+          <p class="form-status form-field-wide" role="status" aria-live="polite"></p>
+        </form>
       </section>
 
       <script>
         document.addEventListener("DOMContentLoaded", () => {
-          const tabsContainer = document.querySelector(".tabs-container");
-          if (!tabsContainer) return;
-
-          const tabBtns = Array.from(
-            tabsContainer.querySelectorAll(".tab-btn"),
-          ) as HTMLButtonElement[];
-          const tabsIndicator = tabsContainer.querySelector(
-            ".tabs-indicator",
-          ) as HTMLElement;
-          const tabsSlider = tabsContainer.querySelector(
-            ".tabs-slider",
-          ) as HTMLElement;
-          let currentIndex = 0;
-          let autoplayInterval: any;
-
-          function updateTabs(btn: HTMLButtonElement) {
-            const index = tabBtns.indexOf(btn);
-            if (index === -1) return;
-            currentIndex = index;
-
-            tabBtns.forEach((b) => {
-              b.classList.remove("active");
-              b.setAttribute("aria-selected", "false");
-            });
-
-            btn.classList.add("active");
-            btn.setAttribute("aria-selected", "true");
-
-            if (tabsIndicator) {
-              const isMobile = window.innerWidth <= 900;
-              if (isMobile) {
-                tabsIndicator.style.height = "";
-                tabsIndicator.style.top = "6px";
-                tabsIndicator.style.bottom = "6px";
-                tabsIndicator.style.width = `${btn.offsetWidth}px`;
-                tabsIndicator.style.transform = `translateX(${btn.offsetLeft}px)`;
-              } else {
-                tabsIndicator.style.width = "";
-                tabsIndicator.style.left = "8px";
-                tabsIndicator.style.right = "8px";
-                tabsIndicator.style.height = `${btn.offsetHeight}px`;
-                tabsIndicator.style.transform = `translateY(${btn.offsetTop}px)`;
-              }
-            }
-
-            const targetId = btn.getAttribute("aria-controls");
-            const targetPanel = document.getElementById(targetId || "");
-            if (targetPanel && tabsSlider) {
-              // Translate vertically
-              tabsSlider.style.transform = `translateY(-${index * 33.3333}%)`;
-            }
-          }
-
-          function nextTab() {
-            const nextIndex = (currentIndex + 1) % tabBtns.length;
-            updateTabs(tabBtns[nextIndex]);
-          }
-
-          // Start autoplay
-          autoplayInterval = setInterval(nextTab, 10000);
-
-          tabBtns.forEach((btn) => {
-            btn.addEventListener("click", () => {
-              // Clear autoplay on manual click
-              clearInterval(autoplayInterval);
-              updateTabs(btn);
-            });
-          });
-
-          // Init positioning
-          setTimeout(() => {
-            const activeBtn = tabsContainer.querySelector(
-              ".tab-btn.active",
-            ) as HTMLButtonElement;
-            if (activeBtn) {
-              updateTabs(activeBtn);
-            }
-          }, 150);
-
-          window.addEventListener("resize", () => {
-            const currentActive = tabsContainer.querySelector(
-              ".tab-btn.active",
-            ) as HTMLButtonElement;
-            if (currentActive) {
-              updateTabs(currentActive);
+          const form = document.querySelector<HTMLFormElement>("[data-contact-form]");
+          form?.addEventListener("submit", async (event) => {
+            event.preventDefault();
+            const button = form.querySelector<HTMLButtonElement>("button[type='submit']");
+            const status = form.querySelector<HTMLElement>(".form-status");
+            const data = new FormData(form);
+            if (button) { button.disabled = true; button.textContent = "Enviando…"; }
+            if (status) { status.textContent = ""; status.className = "form-status form-field-wide"; }
+            try {
+              const response = await fetch("/api/contact", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ ...Object.fromEntries(data), language: "es" }),
+              });
+              if (!response.ok) throw new Error("Request failed");
+              form.reset();
+              if (status) { status.textContent = "Gracias. Tu mensaje ha sido enviado."; status.classList.add("success"); }
+            } catch {
+              if (status) { status.textContent = "No pudimos enviar tu mensaje. Inténtalo de nuevo en unos momentos."; status.classList.add("error"); }
+            } finally {
+              if (button) { button.disabled = false; button.innerHTML = "Iniciar la conversación <span>→</span>"; }
             }
           });
         });
