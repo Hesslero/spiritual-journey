@@ -82,6 +82,8 @@ The site and its Cloudflare Worker API will be available at `http://localhost:43
 
 Before testing the contact form locally, copy `.dev.vars.example` to `.dev.vars` and replace the placeholder with your Resend API key. Wrangler loads this file locally; it is ignored by Git and must never be committed.
 
+Localhost automatically sends from Resend's `onboarding@resend.dev` test address. Resend only allows that test sender to deliver to the email address that owns the Resend account. Production sends from `website@sacred-guides.com` and therefore requires `sacred-guides.com` to be verified in Resend.
+
 Use `npm run dev:astro` only when you need Astro's frontend-only development server. The contact endpoint is not available in that mode.
 
 ### 3. Build for Production
@@ -117,6 +119,7 @@ Most of the content blocks, contact details, and links can be managed directly i
 -   **Email Address:** Update the `email` variable to change the recipient of all consultation requests.
 -   **Expectations & Approach:** Edit the `expectations`, `expectationsEs`, `approach`, or `approachEs` arrays to modify the grid contents without touching the HTML/Astro structures.
 -   **Consultation Inquiries:** The form posts to `/api/contact`, handled by `worker/contact.js` in the `spiritual-journey` Cloudflare Worker. The Worker sends through Resend to `SacredGuideNBS@gmail.com`; `RESEND_API_KEY` must be stored as a Cloudflare secret.
+-   **Submission limit:** A Cloudflare Durable Object allows one successful contact submission per email address every 24 hours. Failed Resend deliveries release the reservation so the visitor can retry.
 
 ---
 

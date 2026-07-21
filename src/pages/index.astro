@@ -311,12 +311,33 @@ The days or times that usually work best for me are...</textarea>
             <button type="submit">Begin the conversation <span>→</span></button>
           </div>
           <p class="form-status form-field-wide" role="status" aria-live="polite"></p>
+          <div class="form-success-popup" data-success-popup hidden>
+            <div class="success-popup-card" role="dialog" aria-modal="true" aria-labelledby="success-title-en" aria-describedby="success-message-en">
+              <span class="success-popup-icon" aria-hidden="true">✓</span>
+              <span class="success-popup-kicker">Message sent</span>
+              <h3 id="success-title-en">Thank you for reaching out.</h3>
+              <p id="success-message-en">Your message was sent successfully. Nathalie will be in touch with you soon.</p>
+              <button type="button" data-close-success>Close</button>
+            </div>
+          </div>
         </form>
       </section>
 
       <script>
         document.addEventListener("DOMContentLoaded", () => {
           const form = document.querySelector<HTMLFormElement>("[data-contact-form]");
+          const popup = form?.querySelector<HTMLElement>("[data-success-popup]");
+          const closePopup = form?.querySelector<HTMLButtonElement>("[data-close-success]");
+          const hidePopup = () => {
+            if (popup) popup.hidden = true;
+          };
+          closePopup?.addEventListener("click", hidePopup);
+          popup?.addEventListener("click", (event) => {
+            if (event.target === popup) hidePopup();
+          });
+          document.addEventListener("keydown", (event) => {
+            if (event.key === "Escape" && popup && !popup.hidden) hidePopup();
+          });
           form?.addEventListener("submit", async (event) => {
             event.preventDefault();
             const button = form.querySelector<HTMLButtonElement>("button[type='submit']");
@@ -333,9 +354,17 @@ The days or times that usually work best for me are...</textarea>
                   language: "en",
                 }),
               });
+              if (response.status === 429) {
+                if (status) {
+                  status.textContent = "You can send only one message every 24 hours. Please try again tomorrow.";
+                  status.classList.add("error");
+                }
+                return;
+              }
               if (!response.ok) throw new Error("Request failed");
               form.reset();
               if (status) { status.textContent = "Thank you. Your message has been sent."; status.classList.add("success"); }
+              if (popup) { popup.hidden = false; closePopup?.focus(); }
             } catch {
               if (status) { status.textContent = "We couldn't send your message. Please try again shortly."; status.classList.add("error"); }
             } finally {

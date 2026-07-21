@@ -7,6 +7,20 @@
     "directory": "./dist",
     "binding": "ASSETS"
   },
+  "durable_objects": {
+    "bindings": [
+      {
+        "name": "SUBMISSION_LIMITER",
+        "class_name": "SubmissionLimiter"
+      }
+    ]
+  },
+  "migrations": [
+    {
+      "tag": "v1",
+      "new_sqlite_classes": ["SubmissionLimiter"]
+    }
+  ],
   "routes": [
     {
       "pattern": "sacred-guides.com",

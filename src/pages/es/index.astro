@@ -320,12 +320,33 @@ Los días u horarios que generalmente me funcionan mejor son...</textarea>
             <button type="submit">Iniciar la conversación <span>→</span></button>
           </div>
           <p class="form-status form-field-wide" role="status" aria-live="polite"></p>
+          <div class="form-success-popup" data-success-popup hidden>
+            <div class="success-popup-card" role="dialog" aria-modal="true" aria-labelledby="success-title-es" aria-describedby="success-message-es">
+              <span class="success-popup-icon" aria-hidden="true">✓</span>
+              <span class="success-popup-kicker">Mensaje enviado</span>
+              <h3 id="success-title-es">Gracias por comunicarte.</h3>
+              <p id="success-message-es">Tu mensaje se envió correctamente. Nathalie se pondrá en contacto contigo pronto.</p>
+              <button type="button" data-close-success>Cerrar</button>
+            </div>
+          </div>
         </form>
       </section>
 
       <script>
         document.addEventListener("DOMContentLoaded", () => {
           const form = document.querySelector<HTMLFormElement>("[data-contact-form]");
+          const popup = form?.querySelector<HTMLElement>("[data-success-popup]");
+          const closePopup = form?.querySelector<HTMLButtonElement>("[data-close-success]");
+          const hidePopup = () => {
+            if (popup) popup.hidden = true;
+          };
+          closePopup?.addEventListener("click", hidePopup);
+          popup?.addEventListener("click", (event) => {
+            if (event.target === popup) hidePopup();
+          });
+          document.addEventListener("keydown", (event) => {
+            if (event.key === "Escape" && popup && !popup.hidden) hidePopup();
+          });
           form?.addEventListener("submit", async (event) => {
             event.preventDefault();
             const button = form.querySelector<HTMLButtonElement>("button[type='submit']");
@@ -342,9 +363,17 @@ Los días u horarios que generalmente me funcionan mejor son...</textarea>
                   language: "es",
                 }),
               });
+              if (response.status === 429) {
+                if (status) {
+                  status.textContent = "Solo puedes enviar un mensaje cada 24 horas. Inténtalo nuevamente mañana.";
+                  status.classList.add("error");
+                }
+                return;
+              }
               if (!response.ok) throw new Error("Request failed");
               form.reset();
               if (status) { status.textContent = "Gracias. Tu mensaje ha sido enviado."; status.classList.add("success"); }
+              if (popup) { popup.hidden = false; closePopup?.focus(); }
             } catch {
               if (status) { status.textContent = "No pudimos enviar tu mensaje. Inténtalo de nuevo en unos momentos."; status.classList.add("error"); }
             } finally {
