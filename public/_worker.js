@@ -7,7 +7,7 @@ const json = (body, status = 200) =>
 const clean = (value, maxLength) =>
   typeof value === "string" ? value.trim().slice(0, maxLength) : "";
 
-export async function onRequestPost({ request, env }) {
+async function sendContactEmail(request, env) {
   const origin = request.headers.get("Origin");
   if (origin && origin !== new URL(request.url).origin) {
     return json({ error: "Invalid request origin." }, 403);
@@ -27,7 +27,6 @@ export async function onRequestPost({ request, env }) {
   const website = clean(payload.website, 200);
   const language = payload.language === "es" ? "es" : "en";
 
-  // Silently accept submissions completed by basic form bots.
   if (website) return json({ ok: true });
 
   const validEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
@@ -78,3 +77,22 @@ export async function onRequestPost({ request, env }) {
 
   return json({ ok: true });
 }
+
+export default {
+  async fetch(request, env) {
+    const url = new URL(request.url);
+
+    if (url.pathname === "/api/contact") {
+      if (request.method !== "POST") {
+        return json({ error: "Method not allowed." }, 405);
+      }
+      return sendContactEmail(request, env);
+    }
+
+    if (url.pathname.startsWith("/api/")) {
+      return json({ error: "Not found." }, 404);
+    }
+
+    return env.ASSETS.fetch(request);
+  },
+};

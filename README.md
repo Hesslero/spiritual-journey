@@ -112,11 +112,11 @@ Most of the content blocks, contact details, and links can be managed directly i
 
 -   **Email Address:** Update the `email` variable to change the recipient of all consultation requests.
 -   **Expectations & Approach:** Edit the `expectations`, `expectationsEs`, `approach`, or `approachEs` arrays to modify the grid contents without touching the HTML/Astro structures.
--   **Consultation Inquiries:** The contact form submits to the Cloudflare Pages Function at `functions/api/contact.js`. The other direct email links use `consultationHref` (English) and `consultationHrefEs` (Spanish).
+-   **Consultation Inquiries:** The contact form submits to the Cloudflare Pages Worker at `public/_worker.js`. The other direct email links use `consultationHref` (English) and `consultationHrefEs` (Spanish).
 
 ### Contact form email delivery
 
-The form uses Resend from a server-side Cloudflare Pages Function. Before deploying:
+The form uses Resend from a server-side Cloudflare Pages Worker. Astro copies `public/_worker.js` into `dist`, which supports Git, Wrangler, and dashboard drag-and-drop deployments. Before deploying:
 
 1. Add and verify `sacred-guides.com` in Resend.
 2. Create a sending-only Resend API key.
