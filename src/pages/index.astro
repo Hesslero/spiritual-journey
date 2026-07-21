@@ -4,14 +4,34 @@ import Icon from "../components/Icon.astro";
 import { approach, consultationHref, email, expectations } from "../data/site";
 import "../styles/global.css";
 const year = new Date().getFullYear();
+const siteURL = "https://sacred-guides.com/";
+const imageURL = new URL(
+  "images/spiritual-journey/spiritual-journey-logo.png",
+  siteURL,
+).href;
 const schema = {
   "@context": "https://schema.org",
-  "@type": "Person",
-  name: "Nathalie Bose-Silver",
-  jobTitle: "Spiritual Director",
-  email,
-  areaServed: ["Oviedo, Florida", "Winter Park, Florida"],
-  knowsLanguage: ["English", "Spanish"],
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": `${siteURL}#website`,
+      url: siteURL,
+      name: "Sacred Guides",
+      alternateName: "Nathalie Bose-Silver Spiritual Direction",
+      inLanguage: ["en", "es"],
+    },
+    {
+      "@type": "Person",
+      "@id": `${siteURL}#nathalie`,
+      name: "Nathalie Bose-Silver",
+      url: siteURL,
+      image: imageURL,
+      jobTitle: "Certified Catholic Spiritual Director",
+      email,
+      areaServed: ["Orlando, Florida", "Oviedo, Florida", "Winter Park, Florida"],
+      knowsLanguage: ["English", "Spanish"],
+    },
+  ],
 };
 const base = import.meta.env.BASE_URL.replace(/\/$/, "");
 const canonicalURL = new URL(
@@ -26,12 +46,17 @@ const canonicalURL = new URL(
     ><meta charset="UTF-8" /><meta
       name="viewport"
       content="width=device-width"
-    /><title>
-      Nathalie Bose-Silver | Certified Spiritual Director | Orlando, FL
-    </title><meta
+    /><title>Spiritual Direction in Orlando | Nathalie Bose-Silver</title><meta
       name="description"
-      content="Spiritual direction and companionship in Orlando, FL. A quiet, prayerful space to notice the movement of grace and discern your path."
-    /><link rel="canonical" href={canonicalURL} /><link
+      content="Find compassionate, Catholic-rooted spiritual direction in Orlando, Oviedo, and Winter Park with Nathalie Bose-Silver. Sessions in English and Spanish."
+    /><meta name="robots" content="index, follow, max-image-preview:large" /><link
+      rel="canonical"
+      href={canonicalURL}
+    /><link rel="alternate" hreflang="en" href={siteURL} /><link
+      rel="alternate"
+      hreflang="es"
+      href={`${siteURL}es/`}
+    /><link rel="alternate" hreflang="x-default" href={siteURL} /><link
       rel="preconnect"
       href="https://fonts.googleapis.com"
     /><link
@@ -43,13 +68,26 @@ const canonicalURL = new URL(
       rel="stylesheet"
     /><meta
       property="og:title"
-      content="Nathalie Bose-Silver | Spiritual Direction & Companion"
+      content="Spiritual Direction in Orlando | Nathalie Bose-Silver"
     /><meta
       property="og:description"
-      content="A prayerful space to notice grace and discern your path."
-    /><meta property="og:type" content="website" /><meta
+      content="A compassionate, prayerful space to notice grace and discern your path. Sessions in English and Spanish."
+    /><meta property="og:type" content="website" /><meta property="og:site_name" content="Sacred Guides" /><meta
+      property="og:url"
+      content={siteURL}
+    /><meta property="og:locale" content="en_US" /><meta
+      property="og:locale:alternate"
+      content="es_US"
+    /><meta
       property="og:image"
-      content="/images/spiritual-journey/spiritual-journey-logo.png"
+      content={imageURL}
+    /><meta name="twitter:card" content="summary_large_image" /><meta
+      name="twitter:title"
+      content="Spiritual Direction in Orlando | Nathalie Bose-Silver"
+    /><meta
+      name="twitter:description"
+      content="A compassionate, prayerful space to notice grace and discern your path. Sessions in English and Spanish."
+    /><meta name="twitter:image" content={imageURL}
     /><link
       rel="icon"
       type="image/png"
